@@ -26,7 +26,7 @@ public class AdapterItemDivider extends RecyclerView.ItemDecoration {
     private int bottomMargin;
 
     public AdapterItemDivider(Context context, int res, int orientation) {
-        divider = context.getResources().getDrawable(res);
+        divider = ContextCompat.getDrawable(context, res);
         this.orientation = orientation;
     }
 
