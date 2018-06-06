@@ -1,4 +1,4 @@
-package com.mario.githubexample.components.ui;
+package com.mario.githubexample.components.ui.main;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +8,10 @@ import com.mario.githubexample.components.base.BaseDialogFragment;
 import com.mario.githubexample.components.di.ActivityScoped;
 
 import javax.inject.Inject;
+
+/**
+ * Created by mario on 06/06/18.
+ */
 
 @ActivityScoped
 public class MainFragment extends BaseDialogFragment<MainContract.Presenter> implements MainContract.View {

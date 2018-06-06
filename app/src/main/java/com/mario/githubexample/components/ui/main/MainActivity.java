@@ -1,10 +1,14 @@
-package com.mario.githubexample.components.ui;
+package com.mario.githubexample.components.ui.main;
 
 import com.mario.githubexample.R;
 import com.mario.githubexample.components.base.BaseActivity;
 import com.mario.githubexample.components.base.BaseFragment;
 
 import javax.inject.Inject;
+
+/**
+ * Created by mario on 06/06/18.
+ */
 
 public class MainActivity extends BaseActivity {
 

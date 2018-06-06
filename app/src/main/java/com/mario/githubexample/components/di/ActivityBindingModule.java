@@ -1,7 +1,7 @@
 package com.mario.githubexample.components.di;
 
-import com.mario.githubexample.components.ui.MainActivity;
-import com.mario.githubexample.components.ui.MainModule;
+import com.mario.githubexample.components.ui.main.MainActivity;
+import com.mario.githubexample.components.ui.main.MainModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
