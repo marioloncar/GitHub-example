@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">GitHubExample</string>
     <string name="filter_results">Filter results</string>
+    <string name="find_a_repository">Find a repository...</string>
 </resources>

@@ -34,7 +34,7 @@
             android:id="@+id/textView_author_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorGray800"
+            android:textColor="@color/colorGray700"
             android:textSize="@dimen/textview_H5_size"
             tools:text="Mario Loncar" />
 

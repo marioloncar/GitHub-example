@@ -2,16 +2,15 @@
 <resources>
     <color name="colorPrimary">@color/colorRed700</color>
     <color name="colorPrimaryDark">@color/colorRed900</color>
-    <color name="colorAccent">@color/colorTeal800</color>
+    <color name="colorAccent">@color/colorGray700</color>
 
     <!-- Base colors -->
     <color name="colorRed700">#D32F2F</color>
     <color name="colorRed900">#B71C1C</color>
 
-    <color name="colorTeal800">#00695C</color>
-
     <color name="colorGray100">#F5F5F5</color>
+    <color name="colorGray300">#E0E0E0</color>
     <color name="colorGray500">#9E9E9E</color>
-    <color name="colorGray800">#424242</color>
+    <color name="colorGray700">#616161</color>
     <color name="colorGray900">#212121</color>
 </resources>

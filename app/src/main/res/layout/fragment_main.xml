@@ -6,20 +6,18 @@
     android:orientation="vertical"
     tools:context=".components.ui.main.MainActivity">
 
-    <EditText
-        android:id="@+id/edittext_search"
+    <SearchView
+        android:id="@+id/searchview_repository"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorGray100"
-        android:drawableEnd="@drawable/ic_search"
-        android:gravity="start"
-        android:hint="Enter username or repo..."
+        android:background="@color/colorGray300"
         android:inputType="text"
-        android:maxLines="1"
-        android:padding="@dimen/base_layout_padding"
-        android:textColor="@color/colorGray800"
+        android:queryHint="@string/find_a_repository"
+        android:queryBackground="@android:color/transparent"
+        android:iconifiedByDefault="false"
+        android:textColor="@color/colorGray700"
         android:textColorHint="@color/colorGray500"
-        android:textSize="@dimen/textview_H3_size" />
+        android:textSize="@dimen/textview_H3_size"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_search_results"
