@@ -24,7 +24,8 @@
 
         <activity
             android:name=".components.ui.main.MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:label="Search"/>
 
     </application>
 

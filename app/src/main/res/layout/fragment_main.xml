@@ -4,6 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".components.ui.main.MainActivity">
+
+    <EditText
+        android:id="@+id/edittext_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorGray100"
+        android:drawableEnd="@drawable/ic_search"
+        android:gravity="start"
+        android:hint="Enter username or repo..."
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="@dimen/base_layout_padding"
+        android:textColor="@color/colorGray800"
+        android:textColorHint="@color/colorGray500"
+        android:textSize="@dimen/textview_H3_size" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_search_results"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>
