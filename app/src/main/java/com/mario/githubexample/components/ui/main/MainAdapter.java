@@ -1,6 +1,5 @@
 package com.mario.githubexample.components.ui.main;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +9,7 @@ import android.widget.TextView;
 
 import com.mario.githubexample.R;
 import com.mario.githubexample.components.adapter.BaseRecyclerViewAdapter;
+import com.mario.githubexample.data.model.repo.GithubRepo;
 import com.mario.githubexample.data.model.repo.Items;
 import com.squareup.picasso.Picasso;
 
@@ -20,7 +20,8 @@ import butterknife.BindView;
 public class MainAdapter extends BaseRecyclerViewAdapter<Items, BaseRecyclerViewAdapter.ItemBaseVH> {
 
     @Inject
-    public MainAdapter(){}
+    public MainAdapter() {
+    }
 
     @NonNull
     @Override
@@ -47,6 +48,12 @@ public class MainAdapter extends BaseRecyclerViewAdapter<Items, BaseRecyclerView
             itemView.setOnClickListener(view -> {
                 if (listener != null) {
                     listener.onItemClick(MainAdapter.this, GithubRepoVH.this, getAdapterPosition());
+                }
+            });
+
+            imageViewThumb.setOnClickListener(v -> {
+                if (listener != null){
+                    listener.onViewClick(MainAdapter.this, GithubRepoVH.this, imageViewThumb, getAdapterPosition());
                 }
             });
         }

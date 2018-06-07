@@ -27,8 +27,15 @@
 
         <activity
             android:name=".components.ui.main.MainActivity"
-            android:screenOrientation="portrait"
-            android:label="Search"/>
+            android:label="Search"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".components.ui.userdetails.UserDetailsActivity"
+            android:label="User details"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".components.ui.browserdetails.BrowserDetailsActivity"
+            android:label="User details" />
 
     </application>
 

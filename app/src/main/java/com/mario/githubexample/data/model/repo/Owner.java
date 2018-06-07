@@ -1,10 +1,11 @@
 package com.mario.githubexample.data.model.repo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Objects;
-
-public class Owner {
+public class Owner implements Parcelable {
 
     @SerializedName("id")
     private int id;
@@ -22,6 +23,35 @@ public class Owner {
     private String url;
     @SerializedName("node_id")
     private String nodeId;
+    @SerializedName("html_url")
+    private String htmlUrl;
+    @SerializedName("site_admin")
+    private boolean siteAdmin;
+
+    protected Owner(Parcel in) {
+        id = in.readInt();
+        receivedEventsUrl = in.readString();
+        avatarUrl = in.readString();
+        gravatarId = in.readString();
+        login = in.readString();
+        type = in.readString();
+        url = in.readString();
+        nodeId = in.readString();
+        htmlUrl = in.readString();
+        siteAdmin = in.readByte() != 0;
+    }
+
+    public static final Creator<Owner> CREATOR = new Creator<Owner>() {
+        @Override
+        public Owner createFromParcel(Parcel in) {
+            return new Owner(in);
+        }
+
+        @Override
+        public Owner[] newArray(int size) {
+            return new Owner[size];
+        }
+    };
 
     public int getId() {
         return id;
@@ -87,37 +117,38 @@ public class Owner {
         this.nodeId = nodeId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Owner owner = (Owner) o;
-        return id == owner.id &&
-                Objects.equals(receivedEventsUrl, owner.receivedEventsUrl) &&
-                Objects.equals(avatarUrl, owner.avatarUrl) &&
-                Objects.equals(gravatarId, owner.gravatarId) &&
-                Objects.equals(login, owner.login) &&
-                Objects.equals(type, owner.type) &&
-                Objects.equals(url, owner.url) &&
-                Objects.equals(nodeId, owner.nodeId);
+    public void setHtmlUrl(String htmlUrl) {
+        this.htmlUrl = htmlUrl;
+    }
+
+    public String getHtmlUrl() {
+        return htmlUrl;
+    }
+
+    public boolean isSiteAdmin() {
+        return siteAdmin;
+    }
+
+    public void setSiteAdmin(boolean siteAdmin) {
+        this.siteAdmin = siteAdmin;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(id, receivedEventsUrl, avatarUrl, gravatarId, login, type, url, nodeId);
+    public int describeContents() {
+        return 0;
     }
 
     @Override
-    public String toString() {
-        return "Owner{" +
-                "id=" + id +
-                ", receivedEventsUrl='" + receivedEventsUrl + '\'' +
-                ", avatarUrl='" + avatarUrl + '\'' +
-                ", gravatarId='" + gravatarId + '\'' +
-                ", login='" + login + '\'' +
-                ", type='" + type + '\'' +
-                ", url='" + url + '\'' +
-                ", nodeId='" + nodeId + '\'' +
-                '}';
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(receivedEventsUrl);
+        dest.writeString(avatarUrl);
+        dest.writeString(gravatarId);
+        dest.writeString(login);
+        dest.writeString(type);
+        dest.writeString(url);
+        dest.writeString(nodeId);
+        dest.writeString(htmlUrl);
+        dest.writeByte((byte) (siteAdmin ? 1 : 0));
     }
 }
