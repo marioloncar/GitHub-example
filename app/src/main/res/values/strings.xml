@@ -12,4 +12,5 @@
     <string name="show_owner_details">Show owner details</string>
     <string name="site_admin">Site admin:</string>
     <string name="type">Type:</string>
+    <string name="no_results">No results</string>
 </resources>

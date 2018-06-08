@@ -18,6 +18,7 @@ interface MainContract {
     }
 
     interface View extends BaseDialogView<Presenter> {
-        void showSearchResult(List<Items> items);
+        void showSearchResults(List<Items> items);
+        void showNoResults();
     }
 }

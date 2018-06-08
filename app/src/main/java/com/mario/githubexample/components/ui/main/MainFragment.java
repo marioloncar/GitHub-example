@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.jakewharton.rxbinding2.widget.RxSearchView;
 import com.mario.githubexample.R;
@@ -51,10 +52,12 @@ public class MainFragment extends BaseDialogFragment<MainContract.Presenter> imp
     public MainFragment() {
     }
 
-    @BindView(R.id.searchview_repository)
+    @BindView(R.id.searchView_repository)
     SearchView searchViewRepo;
-    @BindView(R.id.recyclerview_search_results)
+    @BindView(R.id.recyclerView_search_results)
     RecyclerView recyclerViewResults;
+    @BindView(R.id.textView_no_results)
+    TextView textViewNoResults;
 
     private Disposable disposable;
 
@@ -148,9 +151,18 @@ public class MainFragment extends BaseDialogFragment<MainContract.Presenter> imp
     }
 
     @Override
-    public void showSearchResult(List<Items> items) {
+    public void showSearchResults(List<Items> items) {
         mainAdapter.setItems(items);
         mainAdapter.notifyDataSetChanged();
+
+        recyclerViewResults.setVisibility(View.VISIBLE);
+        textViewNoResults.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showNoResults() {
+        recyclerViewResults.setVisibility(View.GONE);
+        textViewNoResults.setVisibility(View.VISIBLE);
     }
 
 }

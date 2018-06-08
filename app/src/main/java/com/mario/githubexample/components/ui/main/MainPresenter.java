@@ -1,5 +1,7 @@
 package com.mario.githubexample.components.ui.main;
 
+import android.util.Log;
+
 import com.mario.githubexample.data.model.repo.Items;
 import com.mario.githubexample.data.source.repo.RepoRepository;
 import com.mario.githubexample.util.Utils;
@@ -75,13 +77,17 @@ public class MainPresenter implements MainContract.Presenter {
                     @Override
                     public void onSuccess(List<Items> items) {
                         if (view != null) {
-                            view.showSearchResult(items);
+                            if (items.isEmpty()) {
+                                view.showNoResults();
+                            } else {
+                                view.showSearchResults(items);
+                            }
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        view.toast(e.getMessage());
+                        Log.i(getClass().getSimpleName(), "onError: ", e);
                     }
                 });
     }
