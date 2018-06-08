@@ -10,4 +10,6 @@
     <string name="language">Language:</string>
     <string name="open_in_browser">Open in browser</string>
     <string name="show_owner_details">Show owner details</string>
+    <string name="site_admin">Site admin:</string>
+    <string name="type">Type:</string>
 </resources>
