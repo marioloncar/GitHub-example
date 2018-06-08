@@ -34,9 +34,9 @@
             android:label="User details"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".components.ui.browserdetails.BrowserDetailsActivity"
-            android:label="User details" />
-
+            android:name=".components.ui.repodetails.RepoDetailsActivity"
+            android:label="Repository details"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

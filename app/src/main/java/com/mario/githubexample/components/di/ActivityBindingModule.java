@@ -1,9 +1,9 @@
 package com.mario.githubexample.components.di;
 
-import com.mario.githubexample.components.ui.browserdetails.BrowserDetailsActivity;
-import com.mario.githubexample.components.ui.browserdetails.BrowserDetailsModule;
 import com.mario.githubexample.components.ui.main.MainActivity;
 import com.mario.githubexample.components.ui.main.MainModule;
+import com.mario.githubexample.components.ui.repodetails.RepoDetailsActivity;
+import com.mario.githubexample.components.ui.repodetails.RepoDetailsModule;
 import com.mario.githubexample.components.ui.userdetails.UserDetailsActivity;
 import com.mario.githubexample.components.ui.userdetails.UserDetailsModule;
 
@@ -26,6 +26,6 @@ public abstract class ActivityBindingModule {
     abstract UserDetailsActivity userDetailsActivity();
 
     @ActivityScoped
-    @ContributesAndroidInjector(modules = BrowserDetailsModule.class)
-    abstract BrowserDetailsActivity browserDetailsActivity();
+    @ContributesAndroidInjector(modules = RepoDetailsModule.class)
+    abstract RepoDetailsActivity repoDetailsActivity();
 }

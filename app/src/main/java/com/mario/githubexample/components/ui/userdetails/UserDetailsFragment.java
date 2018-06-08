@@ -1,6 +1,7 @@
 package com.mario.githubexample.components.ui.userdetails;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
@@ -9,7 +10,6 @@ import android.widget.TextView;
 import com.mario.githubexample.R;
 import com.mario.githubexample.components.base.BaseDialogFragment;
 import com.mario.githubexample.components.di.ActivityScoped;
-import com.mario.githubexample.components.ui.browserdetails.BrowserDetailsActivity;
 import com.mario.githubexample.data.model.repo.Owner;
 import com.squareup.picasso.Picasso;
 
@@ -19,7 +19,6 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 import static com.mario.githubexample.util.Constants.OWNER_EXTRA_KEY;
-import static com.mario.githubexample.util.Constants.OWNER_EXTRA_URL_KEY;
 
 @ActivityScoped
 public class UserDetailsFragment extends BaseDialogFragment<UserDetailsContract.Presenter> implements UserDetailsContract.View {
@@ -80,14 +79,12 @@ public class UserDetailsFragment extends BaseDialogFragment<UserDetailsContract.
     }
 
     @Override
-    public void showUserDetailsInWebView(String url) {
-        final Intent intent = new Intent(getContext(), BrowserDetailsActivity.class);
-        intent.putExtra(OWNER_EXTRA_URL_KEY, url);
-        startActivity(intent);
+    public void showUserDetailsInBrowser(String url) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
     }
 
     @OnClick(R.id.fab_user_open_in_web)
-    public void onClick(){
-        presenter.onOpenInWebClicked();
+    public void onClick() {
+        presenter.onOpenInBrowserClicked();
     }
 }

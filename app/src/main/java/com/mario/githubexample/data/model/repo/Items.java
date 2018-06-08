@@ -1,10 +1,13 @@
 package com.mario.githubexample.data.model.repo;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Objects;
 
-public class Items {
+public class Items implements Parcelable {
 
     @SerializedName("watchers_count")
     private int watchersCount;
@@ -52,6 +55,47 @@ public class Items {
     private String pushedAt;
     @SerializedName("full_name")
     private String fullName;
+    @SerializedName("archived")
+    private boolean archived;
+
+    protected Items(Parcel in) {
+        watchersCount = in.readInt();
+        fork = in.readByte() != 0;
+        score = in.readFloat();
+        masterBranch = in.readString();
+        openIssuesCount = in.readInt();
+        homepage = in.readString();
+        url = in.readString();
+        size = in.readInt();
+        nodeId = in.readString();
+        privateRepo = in.readByte() != 0;
+        defaultBranch = in.readString();
+        id = in.readInt();
+        htmlUrl = in.readString();
+        updatedAt = in.readString();
+        description = in.readString();
+        name = in.readString();
+        owner = in.readParcelable(Owner.class.getClassLoader());
+        createdAt = in.readString();
+        stargazersCount = in.readInt();
+        language = in.readString();
+        forksCount = in.readInt();
+        pushedAt = in.readString();
+        fullName = in.readString();
+        archived = in.readByte() != 0;
+    }
+
+    public static final Creator<Items> CREATOR = new Creator<Items>() {
+        @Override
+        public Items createFromParcel(Parcel in) {
+            return new Items(in);
+        }
+
+        @Override
+        public Items[] newArray(int size) {
+            return new Items[size];
+        }
+    };
 
     public int getWatchersCount() {
         return watchersCount;
@@ -237,6 +281,14 @@ public class Items {
         this.fullName = fullName;
     }
 
+    public boolean isArchived() {
+        return archived;
+    }
+
+    public void setArchived(boolean archived) {
+        this.archived = archived;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -251,6 +303,7 @@ public class Items {
                 id == items.id &&
                 stargazersCount == items.stargazersCount &&
                 forksCount == items.forksCount &&
+                archived == items.archived &&
                 Objects.equals(masterBranch, items.masterBranch) &&
                 Objects.equals(homepage, items.homepage) &&
                 Objects.equals(url, items.url) &&
@@ -269,7 +322,7 @@ public class Items {
 
     @Override
     public int hashCode() {
-        return Objects.hash(watchersCount, fork, score, masterBranch, openIssuesCount, homepage, url, size, nodeId, privateRepo, defaultBranch, id, htmlUrl, updatedAt, description, name, owner, createdAt, stargazersCount, language, forksCount, pushedAt, fullName);
+        return Objects.hash(watchersCount, fork, score, masterBranch, openIssuesCount, homepage, url, size, nodeId, privateRepo, defaultBranch, id, htmlUrl, updatedAt, description, name, owner, createdAt, stargazersCount, language, forksCount, pushedAt, fullName, archived);
     }
 
     @Override
@@ -298,6 +351,40 @@ public class Items {
                 ", forksCount=" + forksCount +
                 ", pushedAt='" + pushedAt + '\'' +
                 ", fullName='" + fullName + '\'' +
+                ", archived=" + archived +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(watchersCount);
+        dest.writeByte((byte) (fork ? 1 : 0));
+        dest.writeFloat(score);
+        dest.writeString(masterBranch);
+        dest.writeInt(openIssuesCount);
+        dest.writeString(homepage);
+        dest.writeString(url);
+        dest.writeInt(size);
+        dest.writeString(nodeId);
+        dest.writeByte((byte) (privateRepo ? 1 : 0));
+        dest.writeString(defaultBranch);
+        dest.writeInt(id);
+        dest.writeString(htmlUrl);
+        dest.writeString(updatedAt);
+        dest.writeString(description);
+        dest.writeString(name);
+        dest.writeParcelable(owner, flags);
+        dest.writeString(createdAt);
+        dest.writeInt(stargazersCount);
+        dest.writeString(language);
+        dest.writeInt(forksCount);
+        dest.writeString(pushedAt);
+        dest.writeString(fullName);
+        dest.writeByte((byte) (archived ? 1 : 0));
     }
 }

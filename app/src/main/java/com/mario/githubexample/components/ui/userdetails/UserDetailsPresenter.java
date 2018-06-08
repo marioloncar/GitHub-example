@@ -38,9 +38,9 @@ public class UserDetailsPresenter implements UserDetailsContract.Presenter {
     }
 
     @Override
-    public void onOpenInWebClicked() {
+    public void onOpenInBrowserClicked() {
         if (view != null) {
-            view.showUserDetailsInWebView(owner.getHtmlUrl());
+            view.showUserDetailsInBrowser(owner.getHtmlUrl());
         }
     }
 }

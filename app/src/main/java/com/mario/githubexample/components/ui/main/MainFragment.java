@@ -3,7 +3,6 @@ package com.mario.githubexample.components.ui.main;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
@@ -17,11 +16,10 @@ import com.mario.githubexample.R;
 import com.mario.githubexample.components.adapter.BaseRecyclerViewAdapter;
 import com.mario.githubexample.components.base.BaseDialogFragment;
 import com.mario.githubexample.components.di.ActivityScoped;
+import com.mario.githubexample.components.ui.repodetails.RepoDetailsActivity;
 import com.mario.githubexample.components.ui.userdetails.UserDetailsActivity;
-import com.mario.githubexample.components.ui.userdetails.UserDetailsFragment;
 import com.mario.githubexample.data.model.repo.Items;
 import com.mario.githubexample.data.model.repo.Owner;
-import com.mario.githubexample.util.Constants;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -33,6 +31,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 
+import static com.mario.githubexample.util.Constants.ITEMS_EXTRA_KEY;
 import static com.mario.githubexample.util.Constants.OWNER_EXTRA_KEY;
 
 /**
@@ -123,6 +122,11 @@ public class MainFragment extends BaseDialogFragment<MainContract.Presenter> imp
             @Override
             public void onItemClick(BaseRecyclerViewAdapter adapter, RecyclerView.ViewHolder viewHolder, int position) {
                 // Open repo details
+                final Items items = (Items) adapter.getItemAt(position);
+
+                final Intent intent = new Intent(getContext(), RepoDetailsActivity.class);
+                intent.putExtra(ITEMS_EXTRA_KEY, items);
+                startActivity(intent);
             }
         });
 

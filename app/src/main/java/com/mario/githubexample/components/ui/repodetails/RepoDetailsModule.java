@@ -1,4 +1,4 @@
-package com.mario.githubexample.components.ui.browserdetails;
+package com.mario.githubexample.components.ui.repodetails;
 
 import com.mario.githubexample.components.di.ActivityScoped;
 import com.mario.githubexample.components.di.FragmentScoped;
@@ -8,18 +8,18 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
 /**
- * Created by mario on 07/06/18.
+ * Created by mario on 08/06/18.
  */
 
 @Module
-public abstract class BrowserDetailsModule {
+public abstract class RepoDetailsModule {
 
     @ActivityScoped
     @Binds
-    abstract BrowserDetailsContract.Presenter provideBrowserPresenter(BrowserDetailsPresenter browserDetailsPresenter);
+    abstract RepoDetailsContract.Presenter provideRepoDetailsPresenter(RepoDetailsPresenter repoDetailsPresenter);
 
     @FragmentScoped
     @ContributesAndroidInjector
-    abstract BrowserDetailsFragment browserDetailsFragment();
+    abstract RepoDetailsFragment repoDetailsFragment();
 
 }

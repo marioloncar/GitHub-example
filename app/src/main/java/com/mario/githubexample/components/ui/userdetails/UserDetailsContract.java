@@ -6,12 +6,14 @@ import com.mario.githubexample.data.model.repo.Owner;
 
 interface UserDetailsContract {
     interface Presenter extends BasePresenter<View> {
-        void onOpenInWebClicked();
+        void onOpenInBrowserClicked();
     }
 
     interface View extends BaseDialogView<Presenter> {
         Owner getOwnerExtra();
+
         void showUserData(Owner user);
-        void showUserDetailsInWebView(String url);
+
+        void showUserDetailsInBrowser(String url);
     }
 }

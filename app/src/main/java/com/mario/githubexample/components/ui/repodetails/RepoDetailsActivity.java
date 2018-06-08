@@ -1,4 +1,4 @@
-package com.mario.githubexample.components.ui.browserdetails;
+package com.mario.githubexample.components.ui.repodetails;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,13 +11,13 @@ import com.mario.githubexample.components.base.BaseFragment;
 import javax.inject.Inject;
 
 /**
- * Created by mario on 07/06/18.
+ * Created by mario on 08/06/18.
  */
 
-public class BrowserDetailsActivity extends BaseActivity {
+public class RepoDetailsActivity extends BaseActivity {
 
     @Inject
-    BrowserDetailsFragment browserDetailsFragment;
+    RepoDetailsFragment repoDetailsFragment;
 
     @Override
     protected int getLayoutId() {
@@ -26,16 +26,7 @@ public class BrowserDetailsActivity extends BaseActivity {
 
     @Override
     protected BaseFragment getFragment() {
-        return browserDetailsFragment;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (browserDetailsFragment.webView.canGoBack()) {
-            browserDetailsFragment.webView.goBack();
-        } else {
-            super.onBackPressed();
-        }
+        return repoDetailsFragment;
     }
 
     @Override
@@ -43,7 +34,6 @@ public class BrowserDetailsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
         }
     }
 
