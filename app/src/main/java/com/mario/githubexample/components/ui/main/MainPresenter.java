@@ -2,6 +2,7 @@ package com.mario.githubexample.components.ui.main;
 
 import android.util.Log;
 
+import com.mario.githubexample.R;
 import com.mario.githubexample.data.model.repo.Items;
 import com.mario.githubexample.data.source.repo.RepoRepository;
 import com.mario.githubexample.util.Utils;
@@ -68,7 +69,7 @@ public class MainPresenter implements MainContract.Presenter {
 
                         if (!Utils.isConnected(view.getContext())) {
                             d.dispose();
-                            view.toast("No internet connection");
+                            view.toast(R.string.no_internet_connection);
                         } else {
                             reposDisposable = d;
                         }
@@ -90,5 +91,13 @@ public class MainPresenter implements MainContract.Presenter {
                         Log.i(getClass().getSimpleName(), "onError: ", e);
                     }
                 });
+    }
+
+    @Override
+    public void onSortByClicked() {
+        final String[] sortingOptions = view.getContext().getResources().getStringArray(R.array.sorting_types);
+        if (view != null) {
+            view.showSortingOptions(sortingOptions);
+        }
     }
 }

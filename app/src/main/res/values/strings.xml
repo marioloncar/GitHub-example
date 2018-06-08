@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">GitHubExample</string>
+
     <string name="filter_results">Filter results</string>
-    <string name="find_a_repository">Find a repository...</string>
+    <string name="find_a_repository">Find a repository…</string>
     <string name="last_update">Last update:</string>
     <string name="created_at">Created at:</string>
     <string name="archived">Archived:</string>
@@ -13,4 +14,12 @@
     <string name="site_admin">Site admin:</string>
     <string name="type">Type:</string>
     <string name="no_results">No results</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="sort_results_by">Sort results by</string>
+
+    <string-array name="sorting_types">
+        <item>Stars</item>
+        <item>Forks</item>
+        <item>Updated</item>
+    </string-array>
 </resources>

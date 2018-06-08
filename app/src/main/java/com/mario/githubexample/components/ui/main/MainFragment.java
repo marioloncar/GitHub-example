@@ -1,5 +1,6 @@
 package com.mario.githubexample.components.ui.main;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -145,6 +146,7 @@ public class MainFragment extends BaseDialogFragment<MainContract.Presenter> imp
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_filter:
+                presenter.onSortByClicked();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -163,6 +165,28 @@ public class MainFragment extends BaseDialogFragment<MainContract.Presenter> imp
     public void showNoResults() {
         recyclerViewResults.setVisibility(View.GONE);
         textViewNoResults.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showSortingOptions(String[] sortingOptions) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle(R.string.sort_results_by);
+        builder.setItems(sortingOptions, (dialog, which) -> {
+            switch (which) {
+                case 0: // Stars
+
+                    break;
+                case 1: // Forks
+
+                    break;
+                case 2: // Updated
+
+                    break;
+                default: // Best match (default)
+
+            }
+        });
+        builder.show();
     }
 
 }
