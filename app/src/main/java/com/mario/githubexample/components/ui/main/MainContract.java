@@ -15,12 +15,11 @@ import io.reactivex.ObservableSource;
 interface MainContract {
     interface Presenter extends BasePresenter<View> {
         void searchRepositories(String keyword);
-        void onSortByClicked();
+        void onSortTypeOptionSelected(String sortType);
     }
 
     interface View extends BaseDialogView<Presenter> {
         void showSearchResults(List<Items> items);
         void showNoResults();
-        void showSortingOptions(String[] sortingOptions);
     }
 }

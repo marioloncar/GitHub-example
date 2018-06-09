@@ -20,26 +20,21 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/spacing_medium">
 
-            <TextView
-                android:id="@+id/textView_user_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/colorGray900"
-                android:textSize="@dimen/textview_H0_size"
-                tools:text="Mario" />
-        </android.support.v7.widget.CardView>
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/spacing_medium">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="@dimen/spacing_small">
+
+
+                <TextView
+                    android:id="@+id/textView_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorGray900"
+                    android:textSize="@dimen/textview_H0_size"
+                    tools:text="Mario" />
+
 
                 <LinearLayout
                     android:layout_width="match_parent"

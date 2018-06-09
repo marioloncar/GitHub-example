@@ -5,6 +5,7 @@ import android.util.Log;
 import com.mario.githubexample.R;
 import com.mario.githubexample.data.model.repo.Items;
 import com.mario.githubexample.data.source.repo.RepoRepository;
+import com.mario.githubexample.helper.SharedPreferencesHelper;
 import com.mario.githubexample.util.Utils;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class MainPresenter implements MainContract.Presenter {
     private MainContract.View view;
     private Disposable reposDisposable;
     private RepoRepository repoRepository;
-
+    private SharedPreferencesHelper sharedPreferencesHelper;
 
     @Inject
     MainPresenter() {
@@ -53,11 +54,12 @@ public class MainPresenter implements MainContract.Presenter {
     public void setView(MainContract.View view) {
         this.view = view;
         repoRepository = new RepoRepository();
+        sharedPreferencesHelper = new SharedPreferencesHelper(view.getContext());
     }
 
     @Override
     public void searchRepositories(String keyword) {
-        repoRepository.getRepoRemoteDataSource().searchRepositoriesAsObservable(keyword)
+        repoRepository.getRepoRemoteDataSource().searchRepositoriesAsObservable(keyword, sharedPreferencesHelper.getSortType())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<List<Items>>() {
@@ -94,10 +96,7 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void onSortByClicked() {
-        final String[] sortingOptions = view.getContext().getResources().getStringArray(R.array.sorting_types);
-        if (view != null) {
-            view.showSortingOptions(sortingOptions);
-        }
+    public void onSortTypeOptionSelected(String sortType) {
+        sharedPreferencesHelper.setSortType(sortType);
     }
 }

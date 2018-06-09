@@ -1,273 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="@dimen/base_layout_padding">
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_medium">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/base_layout_padding">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/spacing_small">
-
-            <TextView
-                android:id="@+id/textView_repo_full_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/colorGray900"
-                android:textSize="@dimen/textview_H0_size"
-                tools:text="Mario" />
-
-            <TextView
-                android:id="@+id/textView_repo_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@color/colorGray900"
-                android:textSize="@dimen/textview_H2_size"
-                tools:text="This is a repository" />
+            android:layout_marginBottom="@dimen/spacing_medium">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/spacing_small"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_small">
+
+                <TextView
+                    android:id="@+id/textView_repo_full_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/colorGray900"
+                    android:textSize="@dimen/textview_H0_size"
+                    tools:text="Mario" />
+
+                <TextView
+                    android:id="@+id/textView_repo_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/colorGray900"
+                    android:textSize="@dimen/textview_H2_size"
+                    tools:text="This is a repository" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_small"
                     android:gravity="center"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_star" />
-
-                    <TextView
-                        android:id="@+id/textView_repo_watchers"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxLines="1"
-                        android:textSize="@dimen/textview_H4_size"
-                        tools:text="2" />
-                </LinearLayout>
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/spacing_medium"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_star" />
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_fork" />
+                        <TextView
+                            android:id="@+id/textView_repo_watchers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:textSize="@dimen/textview_H4_size"
+                            tools:text="2" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/textView_repo_forks"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxLines="1"
-                        android:textSize="@dimen/textview_H4_size"
-                        tools:text="3" />
-                </LinearLayout>
+                        android:layout_marginStart="@dimen/spacing_medium"
+                        android:gravity="center"
+                        android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/spacing_medium"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_fork" />
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/ic_issue" />
+                        <TextView
+                            android:id="@+id/textView_repo_forks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:textSize="@dimen/textview_H4_size"
+                            tools:text="3" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/textView_repo_issues"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:maxLines="1"
-                        android:textSize="@dimen/textview_H4_size"
-                        tools:text="1" />
+                        android:layout_marginStart="@dimen/spacing_medium"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_issue" />
+
+                        <TextView
+                            android:id="@+id/textView_repo_issues"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:textSize="@dimen/textview_H4_size"
+                            tools:text="1" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
 
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_medium">
-
-        <LinearLayout
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/spacing_small">
+            android:layout_marginBottom="@dimen/spacing_medium">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_small">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/language"
-                    android:textColor="@color/colorGray500"
-                    android:textSize="@dimen/textview_H2_size" />
-
-                <TextView
-                    android:id="@+id/textView_repo_language"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/spacing_small"
-                    android:textColor="@color/colorGray900"
-                    android:textSize="@dimen/textview_H2_size"
-                    tools:text="14/04/2017" />
-            </LinearLayout>
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/language"
+                        android:textColor="@color/colorGray500"
+                        android:textSize="@dimen/textview_H2_size" />
+
+                    <TextView
+                        android:id="@+id/textView_repo_language"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:textColor="@color/colorGray900"
+                        android:textSize="@dimen/textview_H2_size"
+                        tools:text="14/04/2017" />
+                </LinearLayout>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/repo_private"
-                    android:textColor="@color/colorGray500"
-                    android:textSize="@dimen/textview_H2_size" />
-
-                <ImageView
-                    android:id="@+id/imageView_repo_private"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="@dimen/spacing_small"
-                    tools:src="@drawable/ic_true" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fork"
-                    android:textColor="@color/colorGray500"
-                    android:textSize="@dimen/textview_H2_size" />
-
-                <ImageView
-                    android:id="@+id/imageView_repo_fork"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="@dimen/spacing_small"
-                    tools:src="@drawable/ic_true" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/archived"
-                    android:textColor="@color/colorGray500"
-                    android:textSize="@dimen/textview_H2_size" />
-
-                <ImageView
-                    android:id="@+id/imageView_repo_archived"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginStart="@dimen/spacing_small"
-                    tools:src="@drawable/ic_true" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/created_at"
-                    android:textColor="@color/colorGray500"
-                    android:textSize="@dimen/textview_H2_size" />
-
-                <TextView
-                    android:id="@+id/textView_repo_created"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/spacing_small"
-                    android:textColor="@color/colorGray900"
-                    android:textSize="@dimen/textview_H2_size"
-                    tools:text="10/02/2016" />
-            </LinearLayout>
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/repo_private"
+                        android:textColor="@color/colorGray500"
+                        android:textSize="@dimen/textview_H2_size" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/last_update"
-                    android:textColor="@color/colorGray500"
-                    android:textSize="@dimen/textview_H2_size" />
+                    <ImageView
+                        android:id="@+id/imageView_repo_private"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        tools:src="@drawable/ic_true" />
 
-                <TextView
-                    android:id="@+id/textView_repo_last_update"
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/spacing_small"
-                    android:textColor="@color/colorGray900"
-                    android:textSize="@dimen/textview_H2_size"
-                    tools:text="14/04/2017" />
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fork"
+                        android:textColor="@color/colorGray500"
+                        android:textSize="@dimen/textview_H2_size" />
+
+                    <ImageView
+                        android:id="@+id/imageView_repo_fork"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        tools:src="@drawable/ic_true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/archived"
+                        android:textColor="@color/colorGray500"
+                        android:textSize="@dimen/textview_H2_size" />
+
+                    <ImageView
+                        android:id="@+id/imageView_repo_archived"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        tools:src="@drawable/ic_true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/created_at"
+                        android:textColor="@color/colorGray500"
+                        android:textSize="@dimen/textview_H2_size" />
+
+                    <TextView
+                        android:id="@+id/textView_repo_created"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:textColor="@color/colorGray900"
+                        android:textSize="@dimen/textview_H2_size"
+                        tools:text="10/02/2016" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/last_update"
+                        android:textColor="@color/colorGray500"
+                        android:textSize="@dimen/textview_H2_size" />
+
+                    <TextView
+                        android:id="@+id/textView_repo_last_update"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:textColor="@color/colorGray900"
+                        android:textSize="@dimen/textview_H2_size"
+                        tools:text="14/04/2017" />
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
 
-    <Button
-        android:id="@+id/button_repo_open_in_browser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/open_in_browser"
-        android:textColor="@color/colorRed700" />
+        <Button
+            android:id="@+id/button_repo_open_in_browser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open_in_browser"
+            android:textColor="@color/colorRed700" />
 
-    <Button
-        android:id="@+id/button_repo_show_owner_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/show_owner_details"
-        android:textColor="@color/colorRed700" />
-</LinearLayout>
+        <Button
+            android:id="@+id/button_repo_show_owner_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/show_owner_details"
+            android:textColor="@color/colorRed700" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

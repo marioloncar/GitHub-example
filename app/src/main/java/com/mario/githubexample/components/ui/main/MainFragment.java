@@ -1,16 +1,14 @@
 package com.mario.githubexample.components.ui.main;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.jakewharton.rxbinding2.widget.RxSearchView;
@@ -41,7 +39,7 @@ import static com.mario.githubexample.util.Constants.OWNER_EXTRA_KEY;
  */
 
 @ActivityScoped
-public class MainFragment extends BaseDialogFragment<MainContract.Presenter> implements MainContract.View {
+public class MainFragment extends BaseDialogFragment<MainContract.Presenter> implements MainContract.View, AdapterView.OnItemSelectedListener {
 
     @Inject
     MainContract.Presenter presenter;
@@ -59,6 +57,8 @@ public class MainFragment extends BaseDialogFragment<MainContract.Presenter> imp
     RecyclerView recyclerViewResults;
     @BindView(R.id.textView_no_results)
     TextView textViewNoResults;
+    @BindView(R.id.spinner_sort_types)
+    Spinner spinnerSortTypes;
 
     private Disposable disposable;
 
@@ -79,7 +79,8 @@ public class MainFragment extends BaseDialogFragment<MainContract.Presenter> imp
         if (presenter != null) {
             presenter.setView(this);
         }
-        setHasOptionsMenu(true);
+
+        spinnerSortTypes.setOnItemSelectedListener(this);
         recyclerViewResults.setHasFixedSize(true);
         recyclerViewResults.setAdapter(mainAdapter);
 
@@ -137,22 +138,6 @@ public class MainFragment extends BaseDialogFragment<MainContract.Presenter> imp
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.options_item_filter, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_filter:
-                presenter.onSortByClicked();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public void showSearchResults(List<Items> items) {
         mainAdapter.setItems(items);
         mainAdapter.notifyDataSetChanged();
@@ -168,25 +153,13 @@ public class MainFragment extends BaseDialogFragment<MainContract.Presenter> imp
     }
 
     @Override
-    public void showSortingOptions(String[] sortingOptions) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle(R.string.sort_results_by);
-        builder.setItems(sortingOptions, (dialog, which) -> {
-            switch (which) {
-                case 0: // Stars
-
-                    break;
-                case 1: // Forks
-
-                    break;
-                case 2: // Updated
-
-                    break;
-                default: // Best match (default)
-
-            }
-        });
-        builder.show();
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        final String sortType = parent.getItemAtPosition(position).toString();
+        presenter.onSortTypeOptionSelected(sortType);
     }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        presenter.onSortTypeOptionSelected(null);
+    }
 }

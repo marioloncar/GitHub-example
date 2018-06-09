@@ -11,7 +11,7 @@
         android:id="@+id/searchView_repository"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorGray300"
+        android:background="@color/colorGray100"
         android:iconifiedByDefault="false"
         android:inputType="text"
         android:queryBackground="@android:color/transparent"
@@ -19,6 +19,20 @@
         android:textColor="@color/colorGray700"
         android:textColorHint="@color/colorGray500"
         android:textSize="@dimen/textview_H3_size" />
+
+    <include layout="@layout/view_divider" />
+
+    <Spinner
+        android:id="@+id/spinner_sort_types"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/sorting_types"
+        android:paddingBottom="@dimen/spacing_small"
+        android:paddingEnd="@dimen/base_layout_padding"
+        android:paddingStart="@dimen/base_layout_padding"
+        android:paddingTop="@dimen/spacing_small" />
+
+    <include layout="@layout/view_divider" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -30,8 +44,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:visibility="gone"
-            android:text="@string/no_results" />
+            android:text="@string/no_results"
+            android:visibility="gone" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView_search_results"

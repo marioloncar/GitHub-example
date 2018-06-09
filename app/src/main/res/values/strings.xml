@@ -17,9 +17,15 @@
     <string name="no_internet_connection">No internet connection</string>
     <string name="sort_results_by">Sort results by</string>
 
+    <string name="stars">stars</string>
+    <string name="forks">forks</string>
+    <string name="updated">updated</string>
+    <string name="best_match">best match</string>
+
     <string-array name="sorting_types">
-        <item>Stars</item>
-        <item>Forks</item>
-        <item>Updated</item>
+        <item>@string/best_match</item>
+        <item>@string/stars</item>
+        <item>@string/forks</item>
+        <item>@string/updated</item>
     </string-array>
 </resources>
