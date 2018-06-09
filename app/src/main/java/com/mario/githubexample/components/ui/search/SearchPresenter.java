@@ -1,4 +1,4 @@
-package com.mario.githubexample.components.ui.main;
+package com.mario.githubexample.components.ui.search;
 
 import android.util.Log;
 
@@ -21,15 +21,15 @@ import io.reactivex.schedulers.Schedulers;
  * Created by mario on 06/06/18.
  */
 
-public class MainPresenter implements MainContract.Presenter {
+public class SearchPresenter implements SearchContract.Presenter {
 
-    private MainContract.View view;
+    private SearchContract.View view;
     private Disposable reposDisposable;
     private RepoRepository repoRepository;
     private SharedPreferencesHelper sharedPreferencesHelper;
 
     @Inject
-    MainPresenter() {
+    SearchPresenter() {
     }
 
     @Override
@@ -51,7 +51,7 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void setView(MainContract.View view) {
+    public void setView(SearchContract.View view) {
         this.view = view;
         repoRepository = new RepoRepository();
         sharedPreferencesHelper = new SharedPreferencesHelper(view.getContext());

@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/imageView_thumb"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="@dimen/image_search_thumb_size"
+        android:layout_height="@dimen/image_search_thumb_size"
         tools:src="@mipmap/ic_launcher" />
 
     <LinearLayout
@@ -52,8 +52,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="@dimen/image_small_icon_size"
+                    android:layout_height="@dimen/image_small_icon_size"
                     android:src="@drawable/ic_star" />
 
                 <TextView
@@ -73,8 +73,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="@dimen/image_small_icon_size"
+                    android:layout_height="@dimen/image_small_icon_size"
                     android:src="@drawable/ic_fork" />
 
                 <TextView
@@ -94,8 +94,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
+                    android:layout_width="@dimen/image_small_icon_size"
+                    android:layout_height="@dimen/image_small_icon_size"
                     android:src="@drawable/ic_issue" />
 
                 <TextView

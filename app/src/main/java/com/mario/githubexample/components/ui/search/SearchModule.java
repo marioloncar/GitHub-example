@@ -1,4 +1,4 @@
-package com.mario.githubexample.components.ui.main;
+package com.mario.githubexample.components.ui.search;
 
 import com.mario.githubexample.components.di.ActivityScoped;
 import com.mario.githubexample.components.di.FragmentScoped;
@@ -12,14 +12,14 @@ import dagger.android.ContributesAndroidInjector;
  */
 
 @Module
-public abstract class MainModule {
+public abstract class SearchModule {
 
     @ActivityScoped
     @Binds
-    abstract MainContract.Presenter provideMainPresenter(MainPresenter mainPresenter);
+    abstract SearchContract.Presenter provideSearchPresenter(SearchPresenter mainPresenter);
 
     @FragmentScoped
     @ContributesAndroidInjector
-    abstract MainFragment mainFragment();
+    abstract SearchFragment searchFragment();
 
 }

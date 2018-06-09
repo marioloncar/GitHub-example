@@ -1,4 +1,4 @@
-package com.mario.githubexample.components.ui.main;
+package com.mario.githubexample.components.ui.search;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,16 +39,16 @@ import static com.mario.githubexample.util.Constants.OWNER_EXTRA_KEY;
  */
 
 @ActivityScoped
-public class MainFragment extends BaseDialogFragment<MainContract.Presenter> implements MainContract.View, AdapterView.OnItemSelectedListener {
+public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter> implements SearchContract.View, AdapterView.OnItemSelectedListener {
 
     @Inject
-    MainContract.Presenter presenter;
+    SearchContract.Presenter presenter;
 
     @Inject
-    MainAdapter mainAdapter;
+    SearchAdapter mainAdapter;
 
     @Inject
-    public MainFragment() {
+    public SearchFragment() {
     }
 
     @BindView(R.id.searchView_repository)
@@ -64,7 +64,7 @@ public class MainFragment extends BaseDialogFragment<MainContract.Presenter> imp
 
 
     @Override
-    protected MainContract.Presenter getPresenter() {
+    protected SearchContract.Presenter getPresenter() {
         return presenter;
     }
 

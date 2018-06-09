@@ -26,7 +26,7 @@
         </activity>
 
         <activity
-            android:name=".components.ui.main.MainActivity"
+            android:name=".components.ui.search.SearchActivity"
             android:label="Search"
             android:screenOrientation="portrait" />
         <activity

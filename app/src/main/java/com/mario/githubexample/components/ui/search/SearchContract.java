@@ -1,4 +1,4 @@
-package com.mario.githubexample.components.ui.main;
+package com.mario.githubexample.components.ui.search;
 
 import com.mario.githubexample.components.base.BaseDialogView;
 import com.mario.githubexample.components.base.BasePresenter;
@@ -6,13 +6,11 @@ import com.mario.githubexample.data.model.repo.Items;
 
 import java.util.List;
 
-import io.reactivex.ObservableSource;
-
 /**
  * Created by mario on 06/06/18.
  */
 
-interface MainContract {
+interface SearchContract {
     interface Presenter extends BasePresenter<View> {
         void searchRepositories(String keyword);
         void onSortTypeOptionSelected(String sortType);

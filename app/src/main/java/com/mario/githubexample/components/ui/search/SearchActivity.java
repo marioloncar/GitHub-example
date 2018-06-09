@@ -1,4 +1,4 @@
-package com.mario.githubexample.components.ui.main;
+package com.mario.githubexample.components.ui.search;
 
 import com.mario.githubexample.R;
 import com.mario.githubexample.components.base.BaseActivity;
@@ -10,10 +10,10 @@ import javax.inject.Inject;
  * Created by mario on 06/06/18.
  */
 
-public class MainActivity extends BaseActivity {
+public class SearchActivity extends BaseActivity {
 
     @Inject
-    MainFragment mainFragment;
+    SearchFragment searchFragment;
 
     @Override
     protected int getLayoutId() {
@@ -22,6 +22,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected BaseFragment getFragment() {
-        return mainFragment;
+        return searchFragment;
+    }
+
+    @Override
+    protected boolean isDisplayHomeAsUpEnabled() {
+        return false;
     }
 }

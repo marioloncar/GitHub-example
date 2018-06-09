@@ -1,7 +1,7 @@
 package com.mario.githubexample.components.di;
 
-import com.mario.githubexample.components.ui.main.MainActivity;
-import com.mario.githubexample.components.ui.main.MainModule;
+import com.mario.githubexample.components.ui.search.SearchActivity;
+import com.mario.githubexample.components.ui.search.SearchModule;
 import com.mario.githubexample.components.ui.repodetails.RepoDetailsActivity;
 import com.mario.githubexample.components.ui.repodetails.RepoDetailsModule;
 import com.mario.githubexample.components.ui.userdetails.UserDetailsActivity;
@@ -18,8 +18,8 @@ import dagger.android.ContributesAndroidInjector;
 public abstract class ActivityBindingModule {
 
     @ActivityScoped
-    @ContributesAndroidInjector(modules = MainModule.class)
-    abstract MainActivity mainActivity();
+    @ContributesAndroidInjector(modules = SearchModule.class)
+    abstract SearchActivity mainActivity();
 
     @ActivityScoped
     @ContributesAndroidInjector(modules = UserDetailsModule.class)

@@ -53,8 +53,8 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="@dimen/image_small_icon_size"
+                            android:layout_height="@dimen/image_small_icon_size"
                             android:src="@drawable/ic_star" />
 
                         <TextView
@@ -74,8 +74,8 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="@dimen/image_small_icon_size"
+                            android:layout_height="@dimen/image_small_icon_size"
                             android:src="@drawable/ic_fork" />
 
                         <TextView
@@ -95,8 +95,8 @@
                         android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="@dimen/image_small_icon_size"
+                            android:layout_height="@dimen/image_small_icon_size"
                             android:src="@drawable/ic_issue" />
 
                         <TextView
@@ -162,8 +162,8 @@
 
                     <ImageView
                         android:id="@+id/imageView_repo_private"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="@dimen/image_small_icon_size"
+                        android:layout_height="@dimen/image_small_icon_size"
                         android:layout_marginStart="@dimen/spacing_small"
                         tools:src="@drawable/ic_true" />
 
@@ -185,8 +185,8 @@
 
                     <ImageView
                         android:id="@+id/imageView_repo_fork"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="@dimen/image_small_icon_size"
+                        android:layout_height="@dimen/image_small_icon_size"
                         android:layout_marginStart="@dimen/spacing_small"
                         tools:src="@drawable/ic_true" />
                 </LinearLayout>
@@ -207,8 +207,8 @@
 
                     <ImageView
                         android:id="@+id/imageView_repo_archived"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="@dimen/image_small_icon_size"
+                        android:layout_height="@dimen/image_small_icon_size"
                         android:layout_marginStart="@dimen/spacing_small"
                         tools:src="@drawable/ic_true" />
                 </LinearLayout>

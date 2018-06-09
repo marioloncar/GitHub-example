@@ -75,8 +75,8 @@
 
                     <ImageView
                         android:id="@+id/imageView_user_site_admin"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="@dimen/image_small_icon_size"
+                        android:layout_height="@dimen/image_small_icon_size"
                         android:layout_marginStart="@dimen/spacing_small"
                         tools:src="@drawable/ic_true" />
 

@@ -3,7 +3,7 @@ package com.mario.githubexample.data.source.repo;
 public class RepoRepository {
     private final RepoRemoteDataSource repoRemoteDataSource;
 
-    public RepoRepository(){
+    public RepoRepository() {
         this.repoRemoteDataSource = new RepoRemoteDataSource();
     }
 

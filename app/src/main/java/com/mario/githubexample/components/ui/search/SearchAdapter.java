@@ -1,4 +1,4 @@
-package com.mario.githubexample.components.ui.main;
+package com.mario.githubexample.components.ui.search;
 
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.mario.githubexample.R;
 import com.mario.githubexample.components.adapter.BaseRecyclerViewAdapter;
-import com.mario.githubexample.data.model.repo.GithubRepo;
 import com.mario.githubexample.data.model.repo.Items;
 import com.squareup.picasso.Picasso;
 
@@ -17,10 +16,10 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 
-public class MainAdapter extends BaseRecyclerViewAdapter<Items, BaseRecyclerViewAdapter.ItemBaseVH> {
+public class SearchAdapter extends BaseRecyclerViewAdapter<Items, BaseRecyclerViewAdapter.ItemBaseVH> {
 
     @Inject
-    public MainAdapter() {
+    public SearchAdapter() {
     }
 
     @NonNull
@@ -47,13 +46,13 @@ public class MainAdapter extends BaseRecyclerViewAdapter<Items, BaseRecyclerView
             super(itemView);
             itemView.setOnClickListener(view -> {
                 if (listener != null) {
-                    listener.onItemClick(MainAdapter.this, GithubRepoVH.this, getAdapterPosition());
+                    listener.onItemClick(SearchAdapter.this, GithubRepoVH.this, getAdapterPosition());
                 }
             });
 
             imageViewThumb.setOnClickListener(v -> {
                 if (listener != null){
-                    listener.onViewClick(MainAdapter.this, GithubRepoVH.this, imageViewThumb, getAdapterPosition());
+                    listener.onViewClick(SearchAdapter.this, GithubRepoVH.this, imageViewThumb, getAdapterPosition());
                 }
             });
         }

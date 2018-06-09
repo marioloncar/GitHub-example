@@ -15,4 +15,8 @@
     <dimen name="textview_H3_size">15sp</dimen>
     <dimen name="textview_H4_size">15sp</dimen>
     <dimen name="textview_H5_size">14sp</dimen>
+    <dimen name="image_small_icon_size">20dp</dimen>
+    <dimen name="app_bar_layout_user_height">400dp</dimen>
+    <dimen name="image_search_thumb_size">60dp</dimen>
+    <dimen name="view_divider_height">1dp</dimen>
 </resources>
