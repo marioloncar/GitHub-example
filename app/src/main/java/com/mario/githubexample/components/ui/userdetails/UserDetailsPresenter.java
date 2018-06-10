@@ -19,6 +19,7 @@ public class UserDetailsPresenter implements UserDetailsContract.Presenter {
     private UserDetailsContract.View view;
     private UserRepository userRepository;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private SharedPreferencesHelper sharedPreferencesHelper;
 
     @Inject
     UserDetailsPresenter() {
@@ -43,7 +44,7 @@ public class UserDetailsPresenter implements UserDetailsContract.Presenter {
     @Override
     public void setView(UserDetailsContract.View view) {
         this.view = view;
-        final SharedPreferencesHelper sharedPreferencesHelper = new SharedPreferencesHelper(view.getContext());
+        sharedPreferencesHelper = new SharedPreferencesHelper(view.getContext());
         userRepository = new UserRepository(sharedPreferencesHelper);
         getUserDetails();
     }
@@ -62,5 +63,13 @@ public class UserDetailsPresenter implements UserDetailsContract.Presenter {
                     view.dismissDialog();
                     view.toast(throwable.getMessage());
                 }));
+    }
+
+    @Override
+    public void onRevokeAccessClicked() {
+        sharedPreferencesHelper.clearUser();
+        if (view != null) {
+            view.showLoginScreen();
+        }
     }
 }

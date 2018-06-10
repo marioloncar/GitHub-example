@@ -10,9 +10,12 @@ import com.mario.githubexample.data.model.user.User;
 
 interface UserDetailsContract {
     interface Presenter extends BasePresenter<View> {
+        void onRevokeAccessClicked();
     }
 
     interface View extends BaseDialogView<Presenter> {
         void showUserDetails(User user);
+
+        void showLoginScreen();
     }
 }

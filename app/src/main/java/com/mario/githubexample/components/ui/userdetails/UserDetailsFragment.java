@@ -1,5 +1,6 @@
 package com.mario.githubexample.components.ui.userdetails;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import com.mario.githubexample.R;
 import com.mario.githubexample.components.base.BaseDialogFragment;
 import com.mario.githubexample.components.di.ActivityScoped;
+import com.mario.githubexample.components.ui.login.LoginActivity;
 import com.mario.githubexample.data.model.user.User;
 import com.mario.githubexample.util.Utils;
 import com.squareup.picasso.Picasso;
@@ -15,6 +17,7 @@ import com.squareup.picasso.Picasso;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by mario on 10/06/18.
@@ -79,5 +82,17 @@ public class UserDetailsFragment extends BaseDialogFragment<UserDetailsContract.
         textViewFollowers.setText(String.valueOf(user.getFollowers()));
         textViewPublicRepos.setText(String.valueOf(user.getPublicRepos()));
         textViewCreatedAt.setText(Utils.convertDate(user.getCreatedAt()));
+    }
+
+    @Override
+    public void showLoginScreen() {
+        final Intent intent = new Intent(getActivity(), LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.button_revoke_access)
+    public void onClick() {
+        presenter.onRevokeAccessClicked();
     }
 }

@@ -27,6 +27,7 @@
     <string name="public_repos">Public repos:</string>
     <string name="loading">Loading…</string>
     <string name="authorization_failed">Authorization failed</string>
+    <string name="revoke_access">Revoke access</string>
 
     <string-array name="sorting_types">
         <item>@string/best_match</item>

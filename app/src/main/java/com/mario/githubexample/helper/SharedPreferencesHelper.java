@@ -47,5 +47,8 @@ public class SharedPreferencesHelper {
         return getToken() != null;
     }
 
+    public void clearUser() {
+        editor().remove(AUTH_TOKEN_KEY).commit();
+    }
 
 }
