@@ -12,117 +12,150 @@
         <ImageView
             android:id="@+id/imageView_user_avatar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_small" />
 
-        <TextView
-            android:id="@+id/textView_user_name"
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/spacing_small"
-            android:textColor="@color/colorGray900"
-            android:textSize="@dimen/textview_H4_size"
-            tools:text="Mario Loncar" />
+            android:layout_marginBottom="@dimen/spacing_small">
 
-        <TextView
-            android:id="@+id/textView_user_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/spacing_small"
-            android:textColor="@color/colorGray900"
-            android:textSize="@dimen/textview_H4_size"
-            tools:text="Zagreb" />
-
-        <TextView
-            android:id="@+id/textView_user_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/spacing_small"
-            android:textColor="@color/colorGray900"
-            android:textSize="@dimen/textview_H4_size"
-            tools:text="loncar.mario1@gmail.com" />
-
-        <TextView
-            android:id="@+id/textView_user_bio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/spacing_small"
-            android:textColor="@color/colorGray900"
-            android:textSize="@dimen/textview_H4_size"
-            tools:text="lorem ipsum ..." />
-
-        <include layout="@layout/view_divider" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/spacing_small">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/public_repos"
-                android:textColor="@color/colorGray500"
-                android:textSize="@dimen/textview_H4_size" />
-
-            <TextView
-                android:id="@+id/textView_user_public_repos"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_small"
-                android:textColor="@color/colorGray900"
-                android:textSize="@dimen/textview_H4_size"
-                tools:text="7" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:padding="@dimen/base_layout_padding">
 
-        <LinearLayout
+                <TextView
+                    android:id="@+id/textView_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacing_small"
+                    android:textColor="@color/colorGray900"
+                    android:textSize="@dimen/textview_H2_size"
+                    android:textStyle="bold"
+                    tools:text="Mario Loncar" />
+
+                <TextView
+                    android:id="@+id/textView_user_location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacing_small"
+                    android:textColor="@color/colorGray900"
+                    android:textSize="@dimen/textview_H4_size"
+                    tools:text="Zagreb" />
+
+                <TextView
+                    android:id="@+id/textView_user_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacing_small"
+                    android:textColor="@color/colorGray900"
+                    android:textSize="@dimen/textview_H4_size"
+                    tools:text="loncar.mario1@gmail.com" />
+
+                <TextView
+                    android:id="@+id/textView_user_bio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/spacing_small"
+                    android:textColor="@color/colorGray900"
+                    android:textSize="@dimen/textview_H4_size"
+                    tools:text="lorem ipsum ..." />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/spacing_small">
+            android:layout_marginBottom="@dimen/spacing_small">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/followers"
-                android:textColor="@color/colorGray500"
-                android:textSize="@dimen/textview_H4_size" />
-
-            <TextView
-                android:id="@+id/textView_user_followers"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_small"
-                android:textColor="@color/colorGray900"
-                android:textSize="@dimen/textview_H4_size"
-                tools:text="2" />
-        </LinearLayout>
+                android:orientation="vertical"
+                android:padding="@dimen/base_layout_padding">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="@dimen/spacing_small">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_small">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/member_since"
-                android:textColor="@color/colorGray500"
-                android:textSize="@dimen/textview_H4_size" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/public_repos"
+                        android:textColor="@color/colorGray500"
+                        android:textSize="@dimen/textview_H4_size" />
 
-            <TextView
-                android:id="@+id/textView_user_created_at"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_small"
-                android:textColor="@color/colorGray900"
-                android:textSize="@dimen/textview_H4_size"
-                tools:text="14/07/2015" />
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/textView_user_public_repos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:textColor="@color/colorGray900"
+                        android:textSize="@dimen/textview_H4_size"
+                        tools:text="7" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_small">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/followers"
+                        android:textColor="@color/colorGray500"
+                        android:textSize="@dimen/textview_H4_size" />
+
+                    <TextView
+                        android:id="@+id/textView_user_followers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:textColor="@color/colorGray900"
+                        android:textSize="@dimen/textview_H4_size"
+                        tools:text="2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_small">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/member_since"
+                        android:textColor="@color/colorGray500"
+                        android:textSize="@dimen/textview_H4_size" />
+
+                    <TextView
+                        android:id="@+id/textView_user_created_at"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:textColor="@color/colorGray900"
+                        android:textSize="@dimen/textview_H4_size"
+                        tools:text="14/07/2015" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

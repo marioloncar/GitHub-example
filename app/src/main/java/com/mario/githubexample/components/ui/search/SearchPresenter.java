@@ -1,20 +1,13 @@
 package com.mario.githubexample.components.ui.search;
 
-import android.util.Log;
-
-import com.mario.githubexample.R;
-import com.mario.githubexample.data.model.repo.Items;
+import com.mario.githubexample.data.model.repo.GithubRepo;
 import com.mario.githubexample.data.source.repo.RepoRepository;
 import com.mario.githubexample.helper.SharedPreferencesHelper;
-import com.mario.githubexample.util.Utils;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
-import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -24,9 +17,9 @@ import io.reactivex.schedulers.Schedulers;
 public class SearchPresenter implements SearchContract.Presenter {
 
     private SearchContract.View view;
-    private Disposable reposDisposable;
     private RepoRepository repoRepository;
     private SharedPreferencesHelper sharedPreferencesHelper;
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Inject
     SearchPresenter() {
@@ -35,9 +28,7 @@ public class SearchPresenter implements SearchContract.Presenter {
     @Override
     public void onDestroy() {
         view = null;
-        if (reposDisposable != null) {
-            reposDisposable.dispose();
-        }
+        compositeDisposable.clear();
     }
 
     @Override
@@ -59,40 +50,18 @@ public class SearchPresenter implements SearchContract.Presenter {
 
     @Override
     public void searchRepositories(String keyword) {
-        repoRepository.getRepoRemoteDataSource().searchRepositoriesAsObservable(keyword)
+        compositeDisposable.add(repoRepository.getRepoRemoteDataSource().searchRepositories(keyword)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new SingleObserver<List<Items>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        if (reposDisposable != null) {
-                            reposDisposable.dispose();
-                        }
-
-                        if (!Utils.isConnected(view.getContext())) {
-                            d.dispose();
-                            view.toast(R.string.no_internet_connection);
-                        } else {
-                            reposDisposable = d;
-                        }
+                .map(GithubRepo::getItems)
+                .subscribe(items -> {
+                    if (view != null) {
+                        view.showSearchResults(items);
                     }
-
-                    @Override
-                    public void onSuccess(List<Items> items) {
-                        if (view != null) {
-                            if (items.isEmpty()) {
-                                view.showNoResults();
-                            } else {
-                                view.showSearchResults(items);
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Log.i(getClass().getSimpleName(), "onError: ", e);
-                    }
-                });
+                }, throwable -> {
+                    view.toast(throwable.getMessage());
+                })
+        );
     }
 
     @Override
