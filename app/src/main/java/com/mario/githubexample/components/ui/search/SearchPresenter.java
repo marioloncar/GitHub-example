@@ -18,7 +18,7 @@ public class SearchPresenter implements SearchContract.Presenter {
 
     private SearchContract.View view;
     private RepoRepository repoRepository;
-    private SharedPreferencesHelper sharedPreferencesHelper;
+    @Inject SharedPreferencesHelper sharedPreferencesHelper;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Inject
@@ -46,7 +46,6 @@ public class SearchPresenter implements SearchContract.Presenter {
         this.view = view;
         sharedPreferencesHelper = new SharedPreferencesHelper(view.getContext());
         repoRepository = new RepoRepository(sharedPreferencesHelper);
-        System.out.println("TESTIS " + sharedPreferencesHelper.getToken());
     }
 
     @Override

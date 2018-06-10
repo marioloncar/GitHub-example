@@ -25,7 +25,7 @@ public class LoginPresenter implements LoginContract.Presenter {
     private LoginApi loginApi = ApiService.createService(LoginApi.class);
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
-    // TODO: Should apply ProGuard to stop from being decompiled
+    // TODO: This should be obfuscated
     private static final String CLIENT_ID = "294abcb2a3176949e4a6";
     private static final String CLIENT_SECRET = "95116070ba82b7c4417ad093cae440497fbb1277";
     private static final String REDIRECT_URI = "https://github.com/example";
