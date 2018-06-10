@@ -1,5 +1,4 @@
-package com.mario.githubexample.components.ui.userdetails;
-
+package com.mario.githubexample.components.ui.ownerdetails;
 
 import com.mario.githubexample.components.di.ActivityScoped;
 import com.mario.githubexample.components.di.FragmentScoped;
@@ -9,13 +8,13 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
 @Module
-public abstract class UserDetailsModule {
+public abstract class OwnerDetailsModule {
 
     @ActivityScoped
     @Binds
-    abstract UserDetailsContract.Presenter provideUserDetailsPresenter(UserDetailsPresenter userDetailsPresenter);
+    abstract OwnerDetailsContract.Presenter provideOwnerDetailsPresenter(OwnerDetailsPresenter ownerDetailsPresenter);
 
     @FragmentScoped
     @ContributesAndroidInjector
-    abstract UserDetailsFragment userDetailsFragment();
+    abstract OwnerDetailsFragment ownerDetailsFragment();
 }

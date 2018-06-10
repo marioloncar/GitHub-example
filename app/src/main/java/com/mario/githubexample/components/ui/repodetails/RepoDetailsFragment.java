@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.mario.githubexample.R;
 import com.mario.githubexample.components.base.BaseDialogFragment;
 import com.mario.githubexample.components.di.ActivityScoped;
-import com.mario.githubexample.components.ui.userdetails.UserDetailsActivity;
+import com.mario.githubexample.components.ui.ownerdetails.OwnerDetailsActivity;
 import com.mario.githubexample.data.model.repo.Items;
 import com.mario.githubexample.data.model.repo.Owner;
 import com.mario.githubexample.util.Utils;
@@ -123,7 +123,7 @@ public class RepoDetailsFragment extends BaseDialogFragment<RepoDetailsContract.
 
     @Override
     public void showOwnerDetails(Owner owner) {
-        final Intent intent = new Intent(getContext(), UserDetailsActivity.class);
+        final Intent intent = new Intent(getContext(), OwnerDetailsActivity.class);
         intent.putExtra(OWNER_EXTRA_KEY, owner);
         startActivity(intent);
     }

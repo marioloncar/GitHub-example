@@ -7,7 +7,7 @@
     android:layout_marginTop="@dimen/base_layout_margin"
     android:padding="@dimen/base_layout_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/fragment_user_details">
+    tools:showIn="@layout/fragment_owner_details">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
 
 
                 <TextView
-                    android:id="@+id/textView_user_name"
+                    android:id="@+id/textView_owner_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorGray900"
@@ -50,7 +50,7 @@
                         android:textSize="@dimen/textview_H2_size" />
 
                     <TextView
-                        android:id="@+id/textView_user_type"
+                        android:id="@+id/textView_owner_type"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_small"
@@ -74,7 +74,7 @@
                         android:textSize="@dimen/textview_H2_size" />
 
                     <ImageView
-                        android:id="@+id/imageView_user_site_admin"
+                        android:id="@+id/imageView_owner_site_admin"
                         android:layout_width="@dimen/image_small_icon_size"
                         android:layout_height="@dimen/image_small_icon_size"
                         android:layout_marginStart="@dimen/spacing_small"

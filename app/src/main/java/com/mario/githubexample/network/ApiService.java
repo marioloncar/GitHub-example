@@ -2,6 +2,7 @@ package com.mario.githubexample.network;
 
 import android.text.TextUtils;
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.mario.githubexample.network.auth.AuthenticationInterceptor;
 
 import okhttp3.Credentials;
@@ -21,6 +22,7 @@ public class ApiService {
 
     private static Retrofit.Builder builder = new Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .baseUrl(API_BASE_URL);
 
     private static Retrofit retrofit = builder.build();

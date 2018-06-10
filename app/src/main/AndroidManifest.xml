@@ -30,8 +30,8 @@
             android:label="Search"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".components.ui.userdetails.UserDetailsActivity"
-            android:label="User details"
+            android:name=".components.ui.ownerdetails.OwnerDetailsActivity"
+            android:label="Owner details"
             android:screenOrientation="portrait" />
         <activity
             android:name=".components.ui.repodetails.RepoDetailsActivity"
@@ -50,9 +50,13 @@
                 <data
                     android:host="github.com"
                     android:pathPrefix="/example"
-                    android:scheme="https"/>
+                    android:scheme="https" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".components.ui.userdetails.UserDetailsActivity"
+            android:label="User details"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

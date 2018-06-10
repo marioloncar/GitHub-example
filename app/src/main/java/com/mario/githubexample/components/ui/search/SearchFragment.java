@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.SearchView;
@@ -16,6 +19,7 @@ import com.mario.githubexample.R;
 import com.mario.githubexample.components.adapter.BaseRecyclerViewAdapter;
 import com.mario.githubexample.components.base.BaseDialogFragment;
 import com.mario.githubexample.components.di.ActivityScoped;
+import com.mario.githubexample.components.ui.ownerdetails.OwnerDetailsActivity;
 import com.mario.githubexample.components.ui.repodetails.RepoDetailsActivity;
 import com.mario.githubexample.components.ui.userdetails.UserDetailsActivity;
 import com.mario.githubexample.data.model.repo.Items;
@@ -62,7 +66,6 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
 
     private Disposable disposable;
 
-
     @Override
     protected SearchContract.Presenter getPresenter() {
         return presenter;
@@ -79,6 +82,8 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
         if (presenter != null) {
             presenter.setView(this);
         }
+
+        setHasOptionsMenu(true);
 
         spinnerSortTypes.setOnItemSelectedListener(this);
         recyclerViewResults.setHasFixedSize(true);
@@ -119,7 +124,7 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
                 final Items items = (Items) adapter.getItemAt(position);
                 final Owner owner = items.getOwner();
 
-                final Intent intent = new Intent(getContext(), UserDetailsActivity.class);
+                final Intent intent = new Intent(getContext(), OwnerDetailsActivity.class);
                 intent.putExtra(OWNER_EXTRA_KEY, owner);
                 startActivity(intent);
             }
@@ -153,6 +158,11 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
     }
 
     @Override
+    public void showCurrentUserDetails() {
+        startActivity(new Intent(getActivity(), UserDetailsActivity.class));
+    }
+
+    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         final String sortType = parent.getItemAtPosition(position).toString();
         presenter.onSortTypeOptionSelected(sortType);
@@ -161,5 +171,22 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         presenter.onSortTypeOptionSelected(null);
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.options_menu_user, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_user:
+                presenter.onUserDetailsClicked();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

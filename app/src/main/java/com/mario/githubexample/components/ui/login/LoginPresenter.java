@@ -2,6 +2,7 @@ package com.mario.githubexample.components.ui.login;
 
 import android.net.Uri;
 
+import com.mario.githubexample.R;
 import com.mario.githubexample.data.model.token.AccessToken;
 import com.mario.githubexample.helper.SharedPreferencesHelper;
 import com.mario.githubexample.network.ApiService;
@@ -70,11 +71,13 @@ public class LoginPresenter implements LoginContract.Presenter {
             // use the parameter your API exposes for the code (mostly it's "code")
             String code = uri.getQueryParameter("code");
             if (code != null) {
+                view.showDialog(R.string.loading, false);
                 // get access token
                 Call<AccessToken> call = loginApi.getAccessToken(CLIENT_ID, CLIENT_SECRET, code);
                 call.enqueue(new Callback<AccessToken>() {
                     @Override
                     public void onResponse(Call<AccessToken> call, Response<AccessToken> response) {
+                        view.dismissDialog();
                         if (response.body() != null) {
                             sharedPreferencesHelper.storeToken(response.body().getAccessToken());
                             if (view != null) {
@@ -85,11 +88,13 @@ public class LoginPresenter implements LoginContract.Presenter {
 
                     @Override
                     public void onFailure(Call<AccessToken> call, Throwable t) {
+                        view.dismissDialog();
                         view.toast("Authorization failed" + t.getMessage());
                     }
                 });
 
             } else if (uri.getQueryParameter("error") != null) {
+                view.dismissDialog();
                 view.toast("Authorization failed");
             }
         }

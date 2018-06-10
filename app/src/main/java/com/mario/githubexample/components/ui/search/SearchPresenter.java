@@ -99,4 +99,11 @@ public class SearchPresenter implements SearchContract.Presenter {
     public void onSortTypeOptionSelected(String sortType) {
         sharedPreferencesHelper.setSortType(sortType);
     }
+
+    @Override
+    public void onUserDetailsClicked() {
+        if (view != null) {
+            view.showCurrentUserDetails();
+        }
+    }
 }

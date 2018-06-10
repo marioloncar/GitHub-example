@@ -1,7 +1,5 @@
 package com.mario.githubexample.components.ui.userdetails;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
@@ -10,15 +8,13 @@ import android.widget.TextView;
 import com.mario.githubexample.R;
 import com.mario.githubexample.components.base.BaseDialogFragment;
 import com.mario.githubexample.components.di.ActivityScoped;
-import com.mario.githubexample.data.model.repo.Owner;
+import com.mario.githubexample.data.model.user.User;
+import com.mario.githubexample.util.Utils;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.OnClick;
-
-import static com.mario.githubexample.util.Constants.OWNER_EXTRA_KEY;
 
 @ActivityScoped
 public class UserDetailsFragment extends BaseDialogFragment<UserDetailsContract.Presenter> implements UserDetailsContract.View {
@@ -34,10 +30,18 @@ public class UserDetailsFragment extends BaseDialogFragment<UserDetailsContract.
     ImageView imageViewAvatar;
     @BindView(R.id.textView_user_name)
     TextView textViewName;
-    @BindView(R.id.textView_user_type)
-    TextView textViewType;
-    @BindView(R.id.imageView_user_site_admin)
-    ImageView imageViewSiteAdmin;
+    @BindView(R.id.textView_user_location)
+    TextView textViewLocation;
+    @BindView(R.id.textView_user_email)
+    TextView textViewEmail;
+    @BindView(R.id.textView_user_bio)
+    TextView textViewBio;
+    @BindView(R.id.textView_user_followers)
+    TextView textViewFollowers;
+    @BindView(R.id.textView_user_public_repos)
+    TextView textViewPublicRepos;
+    @BindView(R.id.textView_user_created_at)
+    TextView textViewCreatedAt;
 
     @Override
     protected UserDetailsContract.Presenter getPresenter() {
@@ -58,33 +62,18 @@ public class UserDetailsFragment extends BaseDialogFragment<UserDetailsContract.
     }
 
     @Override
-    public Owner getOwnerExtra() {
-        return getActivity().getIntent().getParcelableExtra(OWNER_EXTRA_KEY);
-    }
-
-    @Override
-    public void showUserData(Owner user) {
+    public void showUserDetails(User user) {
         Picasso.with(getContext())
                 .load(user.getAvatarUrl())
                 .into(imageViewAvatar);
 
-        textViewName.setText(user.getLogin());
-        textViewType.setText(user.getType());
+        textViewName.setText(user.getName());
+        textViewLocation.setText(user.getLocation());
+        textViewEmail.setText(user.getEmail());
+        textViewBio.setText(user.getBio());
 
-        if (user.isSiteAdmin()) {
-            imageViewSiteAdmin.setImageResource(R.drawable.ic_true);
-        } else {
-            imageViewSiteAdmin.setImageResource(R.drawable.ic_false);
-        }
-    }
-
-    @Override
-    public void showUserDetailsInBrowser(String url) {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-    }
-
-    @OnClick(R.id.fab_user_open_in_web)
-    public void onClick() {
-        presenter.onOpenInBrowserClicked();
+        textViewFollowers.setText(String.valueOf(user.getFollowers()));
+        textViewPublicRepos.setText(String.valueOf(user.getPublicRepos()));
+        textViewCreatedAt.setText(Utils.convertDate(user.getCreatedAt()));
     }
 }

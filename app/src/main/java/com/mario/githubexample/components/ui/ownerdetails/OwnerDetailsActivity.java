@@ -1,4 +1,4 @@
-package com.mario.githubexample.components.ui.userdetails;
+package com.mario.githubexample.components.ui.ownerdetails;
 
 import com.mario.githubexample.R;
 import com.mario.githubexample.components.base.BaseActivity;
@@ -6,10 +6,14 @@ import com.mario.githubexample.components.base.BaseFragment;
 
 import javax.inject.Inject;
 
-public class UserDetailsActivity extends BaseActivity {
+/**
+ * Created by mario on 07/06/18.
+ */
+
+public class OwnerDetailsActivity extends BaseActivity {
 
     @Inject
-    UserDetailsFragment userDetailsFragment;
+    OwnerDetailsFragment userDetailsFragment;
 
     @Override
     protected int getLayoutId() {

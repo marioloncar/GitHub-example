@@ -13,11 +13,17 @@ import java.util.List;
 interface SearchContract {
     interface Presenter extends BasePresenter<View> {
         void searchRepositories(String keyword);
+
         void onSortTypeOptionSelected(String sortType);
+
+        void onUserDetailsClicked();
     }
 
     interface View extends BaseDialogView<Presenter> {
         void showSearchResults(List<Items> items);
+
         void showNoResults();
+
+        void showCurrentUserDetails();
     }
 }
