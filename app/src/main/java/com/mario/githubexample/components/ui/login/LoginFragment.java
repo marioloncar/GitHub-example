@@ -13,6 +13,10 @@ import javax.inject.Inject;
 
 import butterknife.OnClick;
 
+/**
+ * Created by mario on 10/06/18.
+ */
+
 public class LoginFragment extends BaseDialogFragment<LoginContract.Presenter> implements LoginContract.View {
 
     @Inject
@@ -47,7 +51,7 @@ public class LoginFragment extends BaseDialogFragment<LoginContract.Presenter> i
 
     @Override
     public void showAuthorizeGitHub(String authUrl) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(authUrl));
+        final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(authUrl));
         startActivity(intent);
     }
 

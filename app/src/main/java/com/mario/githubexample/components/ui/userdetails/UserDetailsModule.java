@@ -8,6 +8,10 @@ import dagger.Binds;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 
+/**
+ * Created by mario on 10/06/18.
+ */
+
 @Module
 public abstract class UserDetailsModule {
 

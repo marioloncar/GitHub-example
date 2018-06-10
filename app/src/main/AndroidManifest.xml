@@ -39,7 +39,7 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".components.ui.login.LoginActivity"
-            android:label="Login"
+            android:label="GitHub API"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

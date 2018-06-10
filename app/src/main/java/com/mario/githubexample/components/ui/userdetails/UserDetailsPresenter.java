@@ -10,6 +10,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * Created by mario on 10/06/18.
+ */
+
 public class UserDetailsPresenter implements UserDetailsContract.Presenter {
 
     private UserDetailsContract.View view;
@@ -41,7 +45,6 @@ public class UserDetailsPresenter implements UserDetailsContract.Presenter {
         this.view = view;
         final SharedPreferencesHelper sharedPreferencesHelper = new SharedPreferencesHelper(view.getContext());
         userRepository = new UserRepository(sharedPreferencesHelper);
-
         getUserDetails();
     }
 

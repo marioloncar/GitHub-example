@@ -46,6 +46,7 @@ public class SearchPresenter implements SearchContract.Presenter {
         this.view = view;
         sharedPreferencesHelper = new SharedPreferencesHelper(view.getContext());
         repoRepository = new RepoRepository(sharedPreferencesHelper);
+        System.out.println("TESTIS " + sharedPreferencesHelper.getToken());
     }
 
     @Override

@@ -16,6 +16,10 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 
+/**
+ * Created by mario on 10/06/18.
+ */
+
 @ActivityScoped
 public class UserDetailsFragment extends BaseDialogFragment<UserDetailsContract.Presenter> implements UserDetailsContract.View {
 

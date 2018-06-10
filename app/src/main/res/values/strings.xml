@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GitHubExample</string>
+    <string name="app_name">GitHubAPI</string>
 
     <string name="filter_results">Filter results</string>
     <string name="find_a_repository">Find a repository…</string>
@@ -26,6 +26,7 @@
     <string name="followers">Followers:</string>
     <string name="public_repos">Public repos:</string>
     <string name="loading">Loading…</string>
+    <string name="authorization_failed">Authorization failed</string>
 
     <string-array name="sorting_types">
         <item>@string/best_match</item>

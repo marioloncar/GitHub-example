@@ -5,6 +5,10 @@ import android.net.Uri;
 import com.mario.githubexample.components.base.BaseDialogView;
 import com.mario.githubexample.components.base.BasePresenter;
 
+/**
+ * Created by mario on 10/06/18.
+ */
+
 interface LoginContract {
     interface Presenter extends BasePresenter<View> {
         void onLoginClicked();
@@ -12,7 +16,9 @@ interface LoginContract {
 
     interface View extends BaseDialogView<Presenter> {
         void showAuthorizeGitHub(String authUrl);
+
         Uri getDataFromUriIntent();
+
         void goToSearchScreen();
     }
 }

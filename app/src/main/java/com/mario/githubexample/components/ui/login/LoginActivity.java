@@ -6,6 +6,10 @@ import com.mario.githubexample.components.base.BaseFragment;
 
 import javax.inject.Inject;
 
+/**
+ * Created by mario on 10/06/18.
+ */
+
 public class LoginActivity extends BaseActivity {
 
     @Inject
