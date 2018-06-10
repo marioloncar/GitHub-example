@@ -21,6 +21,7 @@
     <string name="forks">forks</string>
     <string name="updated">updated</string>
     <string name="best_match">best match</string>
+    <string name="authenticate_with_github">Authenticate with GitHub</string>
 
     <string-array name="sorting_types">
         <item>@string/best_match</item>

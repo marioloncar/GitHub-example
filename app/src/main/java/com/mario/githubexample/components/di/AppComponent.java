@@ -18,4 +18,5 @@ public interface AppComponent extends AndroidInjector<GitHubExampleApplication> 
     @Component.Builder
     abstract class Builder extends AndroidInjector.Builder<GitHubExampleApplication> {
     }
+
 }

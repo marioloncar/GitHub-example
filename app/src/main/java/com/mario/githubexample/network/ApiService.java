@@ -1,9 +1,11 @@
 package com.mario.githubexample.network;
 
-import java.util.concurrent.TimeUnit;
+import android.text.TextUtils;
 
+import com.mario.githubexample.network.auth.AuthenticationInterceptor;
+
+import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -13,23 +15,41 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiService {
 
-    private static final String BASE_URL = "https://api.github.com/";
+    public static final String API_BASE_URL = "https://api.github.com/";
 
-    public static Retrofit getRetrofitInstance() {
-        final HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+    private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
-        final OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(logging)
-                .readTimeout(1, TimeUnit.MINUTES)
-                .writeTimeout(1, TimeUnit.MINUTES)
-                .connectTimeout(1, TimeUnit.MINUTES)
-                .build();
+    private static Retrofit.Builder builder = new Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(API_BASE_URL);
 
-        return new Retrofit.Builder()
-                .client(okHttpClient)
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+    private static Retrofit retrofit = builder.build();
+
+    public static <S> S createService(Class<S> serviceClass) {
+        return createService(serviceClass, null);
+    }
+
+    public static <S> S createService(Class<S> serviceClass, String clientId, String clientSecret) {
+        if (!TextUtils.isEmpty(clientId) && !TextUtils.isEmpty(clientSecret)) {
+            String authToken = Credentials.basic(clientId, clientSecret);
+            return createService(serviceClass, authToken);
+        }
+
+        return createService(serviceClass, null, null);
+    }
+
+    public static <S> S createService(Class<S> serviceClass, final String authToken) {
+        if (!TextUtils.isEmpty(authToken)) {
+            AuthenticationInterceptor interceptor = new AuthenticationInterceptor(authToken);
+
+            if (!httpClient.interceptors().contains(interceptor)) {
+                httpClient.addInterceptor(interceptor);
+
+                builder.client(httpClient.build());
+                retrofit = builder.build();
+            }
+        }
+
+        return retrofit.create(serviceClass);
     }
 }

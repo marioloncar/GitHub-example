@@ -1,5 +1,7 @@
 package com.mario.githubexample.components.di;
 
+import com.mario.githubexample.components.ui.login.LoginActivity;
+import com.mario.githubexample.components.ui.login.LoginModule;
 import com.mario.githubexample.components.ui.search.SearchActivity;
 import com.mario.githubexample.components.ui.search.SearchModule;
 import com.mario.githubexample.components.ui.repodetails.RepoDetailsActivity;
@@ -28,4 +30,8 @@ public abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector(modules = RepoDetailsModule.class)
     abstract RepoDetailsActivity repoDetailsActivity();
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = LoginModule.class)
+    abstract LoginActivity loginActivity();
 }

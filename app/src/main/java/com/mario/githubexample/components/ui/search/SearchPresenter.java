@@ -53,13 +53,13 @@ public class SearchPresenter implements SearchContract.Presenter {
     @Override
     public void setView(SearchContract.View view) {
         this.view = view;
-        repoRepository = new RepoRepository();
         sharedPreferencesHelper = new SharedPreferencesHelper(view.getContext());
+        repoRepository = new RepoRepository(sharedPreferencesHelper);
     }
 
     @Override
     public void searchRepositories(String keyword) {
-        repoRepository.getRepoRemoteDataSource().searchRepositoriesAsObservable(keyword, sharedPreferencesHelper.getSortType())
+        repoRepository.getRepoRemoteDataSource().searchRepositoriesAsObservable(keyword)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SingleObserver<List<Items>>() {

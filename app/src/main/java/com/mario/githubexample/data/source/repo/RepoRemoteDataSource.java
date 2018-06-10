@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 
 import com.mario.githubexample.data.model.repo.GithubRepo;
 import com.mario.githubexample.data.model.repo.Items;
+import com.mario.githubexample.helper.SharedPreferencesHelper;
 import com.mario.githubexample.network.ApiService;
 
 import java.io.IOException;
@@ -15,20 +16,26 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public class RepoRemoteDataSource {
+    private SharedPreferencesHelper sharedPreferencesHelper;
 
-    private RepoApi repoApi = ApiService.getRetrofitInstance().create(RepoApi.class);
+    public RepoRemoteDataSource(SharedPreferencesHelper sharedPreferencesHelper) {
+        this.sharedPreferencesHelper = sharedPreferencesHelper;
 
-    private List<Items> searchRepositories(String keyword, String sortType) {
+    }
+
+    private List<Items> searchRepositories(String keyword) {
+        final RepoApi repoApi = ApiService.createService(RepoApi.class, sharedPreferencesHelper.getToken());
+
         try {
-            return repoApi.searchRepositories(keyword, sortType).execute().body().getItems();
+            return repoApi.searchRepositories(keyword, sharedPreferencesHelper.getSortType()).execute().body().getItems();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public Single<List<Items>> searchRepositoriesAsObservable(String keyword, String sortType) {
-        return Single.fromCallable(() -> searchRepositories(keyword, sortType));
+    public Single<List<Items>> searchRepositoriesAsObservable(String keyword) {
+        return Single.fromCallable(() -> searchRepositories(keyword));
     }
 
 
