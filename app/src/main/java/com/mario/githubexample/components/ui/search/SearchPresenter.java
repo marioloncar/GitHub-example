@@ -18,7 +18,7 @@ public class SearchPresenter implements SearchContract.Presenter {
 
     private SearchContract.View view;
     private RepoRepository repoRepository;
-    @Inject SharedPreferencesHelper sharedPreferencesHelper;
+    private SharedPreferencesHelper sharedPreferencesHelper;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Inject
