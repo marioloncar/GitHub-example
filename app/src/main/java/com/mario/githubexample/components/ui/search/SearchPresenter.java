@@ -56,7 +56,11 @@ public class SearchPresenter implements SearchContract.Presenter {
                 .map(GithubRepo::getItems)
                 .subscribe(items -> {
                     if (view != null) {
-                        view.showSearchResults(items);
+                        if (items.isEmpty()) {
+                            view.showNoResults();
+                        } else {
+                            view.showSearchResults(items);
+                        }
                     }
                 }, throwable -> {
                     view.toast(throwable.getMessage());
