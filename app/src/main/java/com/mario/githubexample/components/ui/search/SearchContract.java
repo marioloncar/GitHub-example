@@ -3,6 +3,7 @@ package com.mario.githubexample.components.ui.search;
 import com.mario.githubexample.components.base.BaseDialogView;
 import com.mario.githubexample.components.base.BasePresenter;
 import com.mario.githubexample.data.model.repo.Items;
+import com.mario.githubexample.data.model.repo.Owner;
 
 import java.util.List;
 
@@ -17,6 +18,10 @@ interface SearchContract {
         void onSortTypeOptionSelected(String sortType);
 
         void onUserDetailsClicked();
+
+        void onRepoOwnerClicked(int position);
+
+        void onRepoClicked(int position);
     }
 
     interface View extends BaseDialogView<Presenter> {
@@ -25,5 +30,9 @@ interface SearchContract {
         void showNoResults();
 
         void showCurrentUserDetails();
+
+        void startRepoOwnerDetails(Owner owner);
+
+        void startRepoDetails(Items items);
     }
 }

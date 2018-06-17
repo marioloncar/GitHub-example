@@ -1,8 +1,12 @@
 package com.mario.githubexample.components.ui.search;
 
 import com.mario.githubexample.data.model.repo.GithubRepo;
+import com.mario.githubexample.data.model.repo.Items;
 import com.mario.githubexample.data.source.repo.RepoRepository;
 import com.mario.githubexample.helper.SharedPreferencesHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -20,6 +24,7 @@ public class SearchPresenter implements SearchContract.Presenter {
     private RepoRepository repoRepository;
     private SharedPreferencesHelper sharedPreferencesHelper;
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
+    private List<Items> itemsList = new ArrayList<>();
 
     @Inject
     SearchPresenter() {
@@ -59,7 +64,9 @@ public class SearchPresenter implements SearchContract.Presenter {
                         if (items.isEmpty()) {
                             view.showNoResults();
                         } else {
-                            view.showSearchResults(items);
+                            itemsList.clear();
+                            itemsList.addAll(items);
+                            view.showSearchResults(itemsList);
                         }
                     }
                 }, throwable -> {
@@ -77,6 +84,20 @@ public class SearchPresenter implements SearchContract.Presenter {
     public void onUserDetailsClicked() {
         if (view != null) {
             view.showCurrentUserDetails();
+        }
+    }
+
+    @Override
+    public void onRepoOwnerClicked(int position) {
+        if (view != null) {
+            view.startRepoOwnerDetails(itemsList.get(position).getOwner());
+        }
+    }
+
+    @Override
+    public void onRepoClicked(int position) {
+        if (view != null) {
+            view.startRepoDetails(itemsList.get(position));
         }
     }
 }

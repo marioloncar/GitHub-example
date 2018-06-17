@@ -31,9 +31,8 @@ import java.util.concurrent.TimeUnit;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.DisposableObserver;
 
 import static com.mario.githubexample.util.Constants.ITEMS_EXTRA_KEY;
 import static com.mario.githubexample.util.Constants.OWNER_EXTRA_KEY;
@@ -64,8 +63,6 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
     @BindView(R.id.spinner_sort_types)
     Spinner spinnerSortTypes;
 
-    private Disposable disposable;
-
     @Override
     protected SearchContract.Presenter getPresenter() {
         return presenter;
@@ -92,12 +89,7 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
         RxSearchView.queryTextChanges(searchViewRepo)
                 .debounce(500, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<CharSequence>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        disposable = d;
-                    }
-
+                .subscribe(new DisposableObserver<CharSequence>() {
                     @Override
                     public void onNext(CharSequence charSequence) {
                         if (charSequence.length() != 0) {
@@ -121,22 +113,14 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
             @Override
             public void onViewClick(BaseRecyclerViewAdapter adapter, RecyclerView.ViewHolder viewHolder, View view, int position) {
                 // Open user details
-                final Items items = (Items) adapter.getItemAt(position);
-                final Owner owner = items.getOwner();
+                presenter.onRepoOwnerClicked(position);
 
-                final Intent intent = new Intent(getContext(), OwnerDetailsActivity.class);
-                intent.putExtra(OWNER_EXTRA_KEY, owner);
-                startActivity(intent);
             }
 
             @Override
             public void onItemClick(BaseRecyclerViewAdapter adapter, RecyclerView.ViewHolder viewHolder, int position) {
                 // Open repo details
-                final Items items = (Items) adapter.getItemAt(position);
-
-                final Intent intent = new Intent(getContext(), RepoDetailsActivity.class);
-                intent.putExtra(ITEMS_EXTRA_KEY, items);
-                startActivity(intent);
+                presenter.onRepoClicked(position);
             }
         });
 
@@ -163,6 +147,20 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
     }
 
     @Override
+    public void startRepoOwnerDetails(Owner owner) {
+        final Intent intent = new Intent(getContext(), OwnerDetailsActivity.class);
+        intent.putExtra(OWNER_EXTRA_KEY, owner);
+        startActivity(intent);
+    }
+
+    @Override
+    public void startRepoDetails(Items items) {
+        final Intent intent = new Intent(getContext(), RepoDetailsActivity.class);
+        intent.putExtra(ITEMS_EXTRA_KEY, items);
+        startActivity(intent);
+    }
+
+    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         final String sortType = parent.getItemAtPosition(position).toString();
         presenter.onSortTypeOptionSelected(sortType);
@@ -172,7 +170,6 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
     public void onNothingSelected(AdapterView<?> parent) {
         presenter.onSortTypeOptionSelected(null);
     }
-
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
