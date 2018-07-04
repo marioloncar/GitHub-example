@@ -12,10 +12,10 @@
 
 ## Screenshots
 
-![Search screen](http://i66.tinypic.com/24aybl3.jpg)
-![Repository details](http://i65.tinypic.com/2wee5nr.jpg)
-![Owner details](http://i65.tinypic.com/ehgmqx.jpg)
-![User details](http://i63.tinypic.com/hsqg7q.jpg)
+![Search screen](http://i66.tinypic.com/24aybl3.jpg | width=100)
+![Repository details](http://i65.tinypic.com/2wee5nr.jpg | width=100)
+![Owner details](http://i65.tinypic.com/ehgmqx.jpg | width=100)
+![User details](http://i63.tinypic.com/hsqg7q.jpg | width=100)
 
 
 
