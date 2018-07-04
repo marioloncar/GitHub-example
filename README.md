@@ -11,11 +11,12 @@
 - https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
 
 ## Screenshots
-
-<img src="http://i66.tinypic.com/24aybl3.jpg" width="100">
-<img src="http://i65.tinypic.com/2wee5nr.jpg" width="100">
-<img src="http://i65.tinypic.com/ehgmqx.jpg" width="100">
-<img src="http://i63.tinypic.com/hsqg7q.jpg" width="100">
+<p align="center">
+<img src="http://i66.tinypic.com/24aybl3.jpg" width="150">
+<img src="http://i65.tinypic.com/2wee5nr.jpg" width="150">
+<img src="http://i65.tinypic.com/ehgmqx.jpg" width="150">
+<img src="http://i63.tinypic.com/hsqg7q.jpg" width="150">
+</p>
 
 
 
