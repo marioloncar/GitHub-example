@@ -118,3 +118,7 @@ Temporary Items
 # Profiler output
 *.hprof
 captures/
+
+# API keys
+app/src/main/java/com/mario/githubexample/Keys.java
+
