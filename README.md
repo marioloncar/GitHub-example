@@ -9,3 +9,14 @@
 - https://api.github.com/
 - https://developer.github.com/v3/search/#search-repositories
 - https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
+
+## Screenshots
+
+![Search screen](http://i66.tinypic.com/24aybl3.jpg)
+![Repository details](http://i65.tinypic.com/2wee5nr.jpg)
+![Owner details](http://i65.tinypic.com/ehgmqx.jpg)
+![User details](http://i63.tinypic.com/hsqg7q.jpg)
+
+
+
+
