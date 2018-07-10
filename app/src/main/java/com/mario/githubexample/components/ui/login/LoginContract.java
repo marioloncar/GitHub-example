@@ -2,19 +2,19 @@ package com.mario.githubexample.components.ui.login;
 
 import android.net.Uri;
 
-import com.mario.githubexample.components.base.BaseDialogView;
-import com.mario.githubexample.components.base.BasePresenter;
+import com.mario.githubexample.components.base.MvpDialogView;
+import com.mario.githubexample.components.base.MvpPresenter;
 
 /**
  * Created by mario on 10/06/18.
  */
 
 interface LoginContract {
-    interface Presenter extends BasePresenter<View> {
+    interface Presenter extends MvpPresenter<View> {
         void onLoginClicked();
     }
 
-    interface View extends BaseDialogView<Presenter> {
+    interface View extends MvpDialogView<Presenter> {
         void showAuthorizeGitHub(String authUrl);
 
         Uri getDataFromUriIntent();

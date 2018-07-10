@@ -1,28 +1,55 @@
 package com.mario.githubexample.components.base;
 
 /**
- * Created by mario on 06/06/18.
+ * Created by mario on 13/04/18.
  */
 
-public interface BasePresenter<V extends BaseView> {
+/**
+ * Base class to help eliminate all the boilerplate code for anything that implement MvpPresenter
+ *
+ * @param <P> presenter
+ */
+public abstract class BasePresenter<P extends MvpPresenter> extends BaseFragment {
+
+    private MvpPresenter presenter;
 
     /**
-     * Notify the presenter when the View is destroyed
+     * Provide presenter
+     *
+     * @return the current presenter for View
      */
-    void onDestroy();
+    protected abstract P getPresenter();
 
     /**
-     * Notify the presenter when the View is resumed
+     * {@inheritDoc}
      */
-    void onResume();
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if ((presenter = getPresenter()) != null) {
+            presenter.onDestroy();
+        }
+    }
 
     /**
-     * Notify the presenter when the View is paused
+     * {@inheritDoc}
      */
-    void onPause();
+    @Override
+    public void onResume() {
+        super.onResume();
+        if ((presenter = getPresenter()) != null) {
+            presenter.onResume();
+        }
+    }
 
     /**
-     * Pass the view to the presenter
+     * {@inheritDoc}
      */
-    void setView(V v);
+    @Override
+    public void onPause() {
+        super.onPause();
+        if ((presenter = getPresenter()) != null) {
+            presenter.onPause();
+        }
+    }
 }

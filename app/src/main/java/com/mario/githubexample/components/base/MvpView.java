@@ -12,7 +12,7 @@ import android.content.Context;
  *
  * @param <P> Presenter of view
  */
-public interface BaseView<P extends BasePresenter> {
+public interface MvpView<P extends MvpPresenter> {
 
     Context getContext();
 

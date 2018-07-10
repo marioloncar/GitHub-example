@@ -1,7 +1,7 @@
 package com.mario.githubexample.components.ui.search;
 
-import com.mario.githubexample.components.base.BaseDialogView;
-import com.mario.githubexample.components.base.BasePresenter;
+import com.mario.githubexample.components.base.MvpDialogView;
+import com.mario.githubexample.components.base.MvpPresenter;
 import com.mario.githubexample.data.model.repo.Items;
 import com.mario.githubexample.data.model.repo.Owner;
 
@@ -12,7 +12,7 @@ import java.util.List;
  */
 
 interface SearchContract {
-    interface Presenter extends BasePresenter<View> {
+    interface Presenter extends MvpPresenter<View> {
         void searchRepositories(String keyword);
 
         void onSortTypeOptionSelected(String sortType);
@@ -24,7 +24,7 @@ interface SearchContract {
         void onRepoClicked(int position);
     }
 
-    interface View extends BaseDialogView<Presenter> {
+    interface View extends MvpDialogView<Presenter> {
         void showSearchResults(List<Items> items);
 
         void showNoResults();

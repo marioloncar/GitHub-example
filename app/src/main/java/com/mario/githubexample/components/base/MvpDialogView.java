@@ -12,7 +12,7 @@ import android.support.annotation.StringRes;
  *
  * @param <P> the presenter for this view
  */
-public interface BaseDialogView<P extends BasePresenter> extends BaseView<P> {
+public interface MvpDialogView<P extends MvpPresenter> extends MvpView<P> {
 
     /**
      * Show dialog

@@ -1,15 +1,15 @@
 package com.mario.githubexample.components.ui.ownerdetails;
 
-import com.mario.githubexample.components.base.BaseDialogView;
-import com.mario.githubexample.components.base.BasePresenter;
+import com.mario.githubexample.components.base.MvpDialogView;
+import com.mario.githubexample.components.base.MvpPresenter;
 import com.mario.githubexample.data.model.repo.Owner;
 
 interface OwnerDetailsContract {
-    interface Presenter extends BasePresenter<View> {
+    interface Presenter extends MvpPresenter<View> {
         void onOpenInBrowserClicked();
     }
 
-    interface View extends BaseDialogView<Presenter> {
+    interface View extends MvpDialogView<Presenter> {
         Owner getOwnerExtra();
 
         void showUserData(Owner user);

@@ -11,7 +11,7 @@ import android.widget.Toast;
  * Created by mario on 13/04/18.
  */
 
-public abstract class BaseDialogFragment<P extends BasePresenter> extends BasePresenterImpl<P> implements BaseDialogView<P> {
+public abstract class BaseDialogFragment<P extends MvpPresenter> extends BasePresenter<P> implements MvpDialogView<P> {
 
     private ProgressDialog progressDialog;
     private Toast toast;
