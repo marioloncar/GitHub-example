@@ -14,7 +14,7 @@ import com.mario.githubexample.components.di.ActivityScoped;
 import com.mario.githubexample.components.ui.ownerdetails.OwnerDetailsActivity;
 import com.mario.githubexample.data.model.repo.Items;
 import com.mario.githubexample.data.model.repo.Owner;
-import com.mario.githubexample.util.Utils;
+import com.mario.githubexample.util.DateUtils;
 
 import javax.inject.Inject;
 
@@ -92,8 +92,8 @@ public class RepoDetailsFragment extends BaseDialogFragment<RepoDetailsContract.
         textViewForks.setText(String.valueOf(items.getForksCount()));
         textViewIssues.setText(String.valueOf(items.getOpenIssuesCount()));
         textViewLanguage.setText(items.getLanguage());
-        textViewUpdated.setText(Utils.convertDate(items.getUpdatedAt()));
-        textViewCreated.setText(Utils.convertDate(items.getCreatedAt()));
+        textViewUpdated.setText(DateUtils.convertDate(items.getUpdatedAt()));
+        textViewCreated.setText(DateUtils.convertDate(items.getCreatedAt()));
 
 
         if (items.isFork()) {

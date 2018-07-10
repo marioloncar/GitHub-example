@@ -11,7 +11,7 @@ import com.mario.githubexample.components.base.BaseDialogFragment;
 import com.mario.githubexample.components.di.ActivityScoped;
 import com.mario.githubexample.components.ui.login.LoginActivity;
 import com.mario.githubexample.data.model.user.User;
-import com.mario.githubexample.util.Utils;
+import com.mario.githubexample.util.DateUtils;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
@@ -81,7 +81,7 @@ public class UserDetailsFragment extends BaseDialogFragment<UserDetailsContract.
 
         textViewFollowers.setText(String.valueOf(user.getFollowers()));
         textViewPublicRepos.setText(String.valueOf(user.getPublicRepos()));
-        textViewCreatedAt.setText(Utils.convertDate(user.getCreatedAt()));
+        textViewCreatedAt.setText(DateUtils.convertDate(user.getCreatedAt()));
     }
 
     @Override
