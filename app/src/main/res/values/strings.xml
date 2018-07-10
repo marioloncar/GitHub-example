@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GitHubAPI</string>
+    <string name="app_name">GitHub-Java</string>
 
     <string name="filter_results">Filter results</string>
     <string name="find_a_repository">Find a repository…</string>
