@@ -8,8 +8,9 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.View;
+
+import timber.log.Timber;
 
 /**
  * Created by mario on 06/06/18.
@@ -67,19 +68,19 @@ public class TouchHelperCallbackImpl extends ItemTouchHelper.Callback {
 
     @Override
     public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-        Log.d(getClass().getSimpleName(), "onMove called");
+        Timber.d("onMove called");
         return adapter.onItemMove(viewHolder.getAdapterPosition(), target.getAdapterPosition());
     }
 
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-        Log.d(getClass().getSimpleName(), "onSwiped called");
+        Timber.d("onSwiped called");
         adapter.onItemSwiped(viewHolder);
     }
 
     @Override
     public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-        Log.d(getClass().getSimpleName(), "onChildDrawCalled");
+        Timber.d("onChildDrawCalled");
         if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
             if (enableSwipeFadeOut) {
                 final float alpha = ALPHA_FULL - Math.abs(dX) / (float) viewHolder.itemView.getWidth();
@@ -113,7 +114,7 @@ public class TouchHelperCallbackImpl extends ItemTouchHelper.Callback {
     @Override
     public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
         if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
-            Log.d(getClass().getSimpleName(), "onSelectedChanged called");
+            Timber.d("onSelectedChanged called");
             if (viewHolder instanceof DragSwipeItems) {
                 DragSwipeItems dragSwipeItems = (DragSwipeItems) viewHolder;
                 dragSwipeItems.onDragSwipeItemSelected();
@@ -123,14 +124,14 @@ public class TouchHelperCallbackImpl extends ItemTouchHelper.Callback {
 
     @Override
     public boolean canDropOver(RecyclerView recyclerView, RecyclerView.ViewHolder current, RecyclerView.ViewHolder target) {
-        Log.d(getClass().getSimpleName(), "canDropOver called");
+        Timber.d("canDropOver called");
         return super.canDropOver(recyclerView, current, target);
     }
 
     @Override
     public void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
         if (viewHolder instanceof DragSwipeItems) {
-            Log.d(getClass().getSimpleName(), "ClearView called");
+            Timber.d("ClearView called");
             DragSwipeItems dragSwipeItems = (DragSwipeItems) viewHolder;
             dragSwipeItems.onDragSwipeItemCleared();
         }

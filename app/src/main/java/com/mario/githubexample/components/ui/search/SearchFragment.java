@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -33,6 +32,7 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableObserver;
+import timber.log.Timber;
 
 import static com.mario.githubexample.util.Constants.ITEMS_EXTRA_KEY;
 import static com.mario.githubexample.util.Constants.OWNER_EXTRA_KEY;
@@ -99,12 +99,12 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.i(getClass().getSimpleName(), "onError: ", e);
+                        Timber.i(e.getMessage(), "onError: ");
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.i(getClass().getSimpleName(), "onComplete: ");
+                        Timber.i("onComplete: ");
 
                     }
                 });

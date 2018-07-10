@@ -62,4 +62,8 @@ dependencies {
 
     // Joda time
     implementation 'net.danlew:android.joda:2.9.9.4'
+
+    // Log
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
 }
