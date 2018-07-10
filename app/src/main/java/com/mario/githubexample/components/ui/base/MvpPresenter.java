@@ -1,4 +1,4 @@
-package com.mario.githubexample.components.base;
+package com.mario.githubexample.components.ui.base;
 
 /**
  * Created by mario on 06/06/18.

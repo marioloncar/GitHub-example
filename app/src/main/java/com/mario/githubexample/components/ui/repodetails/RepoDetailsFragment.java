@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mario.githubexample.R;
-import com.mario.githubexample.components.base.BaseDialogFragment;
+import com.mario.githubexample.components.ui.base.BaseDialogFragment;
 import com.mario.githubexample.components.di.ActivityScoped;
 import com.mario.githubexample.components.ui.ownerdetails.OwnerDetailsActivity;
 import com.mario.githubexample.data.model.repo.Items;

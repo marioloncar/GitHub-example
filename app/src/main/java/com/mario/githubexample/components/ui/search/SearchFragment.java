@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.jakewharton.rxbinding2.widget.RxSearchView;
 import com.mario.githubexample.R;
 import com.mario.githubexample.components.adapter.BaseRecyclerViewAdapter;
-import com.mario.githubexample.components.base.BaseDialogFragment;
+import com.mario.githubexample.components.ui.base.BaseDialogFragment;
 import com.mario.githubexample.components.di.ActivityScoped;
 import com.mario.githubexample.components.ui.ownerdetails.OwnerDetailsActivity;
 import com.mario.githubexample.components.ui.repodetails.RepoDetailsActivity;

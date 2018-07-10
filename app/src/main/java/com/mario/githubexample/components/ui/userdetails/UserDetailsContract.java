@@ -1,7 +1,7 @@
 package com.mario.githubexample.components.ui.userdetails;
 
-import com.mario.githubexample.components.base.MvpDialogView;
-import com.mario.githubexample.components.base.MvpPresenter;
+import com.mario.githubexample.components.ui.base.MvpDialogView;
+import com.mario.githubexample.components.ui.base.MvpPresenter;
 import com.mario.githubexample.data.model.user.User;
 
 /**

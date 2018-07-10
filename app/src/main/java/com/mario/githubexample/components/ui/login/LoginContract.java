@@ -2,8 +2,8 @@ package com.mario.githubexample.components.ui.login;
 
 import android.net.Uri;
 
-import com.mario.githubexample.components.base.MvpDialogView;
-import com.mario.githubexample.components.base.MvpPresenter;
+import com.mario.githubexample.components.ui.base.MvpDialogView;
+import com.mario.githubexample.components.ui.base.MvpPresenter;
 
 /**
  * Created by mario on 10/06/18.

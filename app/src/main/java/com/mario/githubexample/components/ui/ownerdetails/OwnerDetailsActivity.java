@@ -1,8 +1,8 @@
 package com.mario.githubexample.components.ui.ownerdetails;
 
 import com.mario.githubexample.R;
-import com.mario.githubexample.components.base.BaseActivity;
-import com.mario.githubexample.components.base.BaseFragment;
+import com.mario.githubexample.components.ui.base.BaseActivity;
+import com.mario.githubexample.components.ui.base.BaseFragment;
 
 import javax.inject.Inject;
 

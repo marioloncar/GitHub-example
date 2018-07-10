@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.mario.githubexample.R;
-import com.mario.githubexample.components.base.BaseDialogFragment;
+import com.mario.githubexample.components.ui.base.BaseDialogFragment;
 import com.mario.githubexample.components.ui.search.SearchActivity;
 
 import javax.inject.Inject;
