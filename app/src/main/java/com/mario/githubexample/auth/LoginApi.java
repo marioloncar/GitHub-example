@@ -1,11 +1,9 @@
-package com.mario.githubexample.network.auth;
+package com.mario.githubexample.auth;
 
 import com.mario.githubexample.data.model.token.AccessToken;
-import com.mario.githubexample.network.ApiService;
 import com.mario.githubexample.util.Constants;
 
 import io.reactivex.Single;
-import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.Headers;

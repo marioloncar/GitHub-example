@@ -1,4 +1,4 @@
-package com.mario.githubexample.helper;
+package com.mario.githubexample.data.prefs;
 
 import android.content.Context;
 import android.content.SharedPreferences;

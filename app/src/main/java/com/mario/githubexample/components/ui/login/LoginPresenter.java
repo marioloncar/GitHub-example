@@ -3,9 +3,9 @@ package com.mario.githubexample.components.ui.login;
 import android.net.Uri;
 
 import com.mario.githubexample.R;
-import com.mario.githubexample.helper.SharedPreferencesHelper;
-import com.mario.githubexample.network.ApiService;
-import com.mario.githubexample.network.auth.LoginApi;
+import com.mario.githubexample.data.prefs.SharedPreferencesHelper;
+import com.mario.githubexample.data.network.ApiHelper;
+import com.mario.githubexample.auth.LoginApi;
 import com.mario.githubexample.util.Constants;
 
 import javax.inject.Inject;
@@ -26,7 +26,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     private LoginContract.View view;
     private SharedPreferencesHelper sharedPreferencesHelper;
-    private LoginApi loginApi = ApiService.createService(LoginApi.class);
+    private LoginApi loginApi = ApiHelper.createService(LoginApi.class);
     private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Inject

@@ -3,8 +3,8 @@ package com.mario.githubexample.data.source.repo;
 import android.support.annotation.Nullable;
 
 import com.mario.githubexample.data.model.repo.GithubRepo;
-import com.mario.githubexample.helper.SharedPreferencesHelper;
-import com.mario.githubexample.network.ApiService;
+import com.mario.githubexample.data.prefs.SharedPreferencesHelper;
+import com.mario.githubexample.data.network.ApiHelper;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -16,7 +16,7 @@ public class RepoRemoteDataSource {
 
     public RepoRemoteDataSource(SharedPreferencesHelper sharedPreferencesHelper) {
         this.sharedPreferencesHelper = sharedPreferencesHelper;
-        repoApi = ApiService.createService(RepoApi.class, sharedPreferencesHelper.getToken());
+        repoApi = ApiHelper.createService(RepoApi.class, sharedPreferencesHelper.getToken());
     }
 
     public Observable<GithubRepo> searchRepositories(String keyword) {

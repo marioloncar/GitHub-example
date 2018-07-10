@@ -1,4 +1,4 @@
-package com.mario.githubexample.network.auth;
+package com.mario.githubexample.auth;
 
 import java.io.IOException;
 

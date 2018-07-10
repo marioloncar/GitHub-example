@@ -3,7 +3,7 @@ package com.mario.githubexample.components.ui.search;
 import com.mario.githubexample.data.model.repo.GithubRepo;
 import com.mario.githubexample.data.model.repo.Items;
 import com.mario.githubexample.data.source.repo.RepoRepository;
-import com.mario.githubexample.helper.SharedPreferencesHelper;
+import com.mario.githubexample.data.prefs.SharedPreferencesHelper;
 
 import java.util.ArrayList;
 import java.util.List;

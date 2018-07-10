@@ -7,7 +7,7 @@ import net.danlew.android.joda.JodaTimeAndroid;
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
 
-public class GitHubExampleApplication extends DaggerApplication {
+public class MvpApp extends DaggerApplication {
 
     @Override
     public void onCreate() {
@@ -16,7 +16,7 @@ public class GitHubExampleApplication extends DaggerApplication {
     }
 
     @Override
-    protected AndroidInjector<? extends GitHubExampleApplication> applicationInjector() {
+    protected AndroidInjector<? extends MvpApp> applicationInjector() {
         return DaggerAppComponent.builder().create(this);
     }
 }

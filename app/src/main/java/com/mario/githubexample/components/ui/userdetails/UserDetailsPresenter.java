@@ -2,7 +2,7 @@ package com.mario.githubexample.components.ui.userdetails;
 
 import com.mario.githubexample.R;
 import com.mario.githubexample.data.source.user.UserRepository;
-import com.mario.githubexample.helper.SharedPreferencesHelper;
+import com.mario.githubexample.data.prefs.SharedPreferencesHelper;
 
 import javax.inject.Inject;
 

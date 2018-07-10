@@ -1,12 +1,13 @@
-package com.mario.githubexample.network;
+package com.mario.githubexample.data.network;
 
 import android.text.TextUtils;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.mario.githubexample.network.auth.AuthenticationInterceptor;
+import com.mario.githubexample.auth.AuthenticationInterceptor;
 
 import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -14,11 +15,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by mario on 07/06/18.
  */
 
-public class ApiService {
+public class ApiHelper {
 
     public static final String API_BASE_URL = "https://api.github.com/";
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+    private static HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
 
     private static Retrofit.Builder builder = new Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
@@ -41,11 +43,13 @@ public class ApiService {
     }
 
     public static <S> S createService(Class<S> serviceClass, final String authToken) {
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         if (!TextUtils.isEmpty(authToken)) {
             AuthenticationInterceptor interceptor = new AuthenticationInterceptor(authToken);
 
             if (!httpClient.interceptors().contains(interceptor)) {
                 httpClient.addInterceptor(interceptor);
+                httpClient.addInterceptor(logging);
 
                 builder.client(httpClient.build());
                 retrofit = builder.build();

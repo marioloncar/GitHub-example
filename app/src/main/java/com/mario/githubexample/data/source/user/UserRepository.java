@@ -1,6 +1,6 @@
 package com.mario.githubexample.data.source.user;
 
-import com.mario.githubexample.helper.SharedPreferencesHelper;
+import com.mario.githubexample.data.prefs.SharedPreferencesHelper;
 
 public class UserRepository {
     private final UserRemoteDataSource userRemoteDataSource;
