@@ -12,13 +12,14 @@ import retrofit2.http.Query;
 
 public class RepoRemoteDataSource {
     private SharedPreferencesHelper sharedPreferencesHelper;
+    private RepoApi repoApi;
 
     public RepoRemoteDataSource(SharedPreferencesHelper sharedPreferencesHelper) {
         this.sharedPreferencesHelper = sharedPreferencesHelper;
+        repoApi = ApiService.createService(RepoApi.class, sharedPreferencesHelper.getToken());
     }
 
     public Observable<GithubRepo> searchRepositories(String keyword) {
-        final RepoApi repoApi = ApiService.createService(RepoApi.class, sharedPreferencesHelper.getToken());
         return repoApi.searchRepositories(keyword, sharedPreferencesHelper.getSortType());
     }
 

@@ -10,13 +10,13 @@ import retrofit2.http.Query;
 
 public class UserRemoteDataSource {
     private SharedPreferencesHelper sharedPreferencesHelper;
+    private final UserApi userApi = ApiService.createService(UserApi.class);
 
     public UserRemoteDataSource(SharedPreferencesHelper sharedPreferencesHelper) {
         this.sharedPreferencesHelper = sharedPreferencesHelper;
     }
 
     public Single<User> getCurrentUser() {
-        final UserApi userApi = ApiService.createService(UserApi.class);
         return userApi.getCurrentUser(sharedPreferencesHelper.getToken());
     }
 
