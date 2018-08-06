@@ -54,11 +54,11 @@ public class SearchFragment extends BaseDialogFragment<SearchContract.Presenter>
     public SearchFragment() {
     }
 
-    @BindView(R.id.searchView_repository)
+    @BindView(R.id.searchview)
     SearchView searchViewRepo;
-    @BindView(R.id.recyclerView_search_results)
+    @BindView(R.id.recyclerview_results)
     RecyclerView recyclerViewResults;
-    @BindView(R.id.textView_no_results)
+    @BindView(R.id.textview_no_results)
     TextView textViewNoResults;
     @BindView(R.id.spinner_sort_types)
     Spinner spinnerSortTypes;
