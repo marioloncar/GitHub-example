@@ -1,4 +1,4 @@
-# GitHubAPI-example
+# GitHub Explorer-example
 
 - This is an example project using MVP, RxJava2, Dagger2, Retrofit2, Butterknife.
 - It uses GitHubAPI and contains: authentication, searching repositories, repository and owner details, current logged in user details.
